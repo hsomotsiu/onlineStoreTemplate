@@ -1,0 +1,12 @@
+- **Team Member Name:** Zarin Khan 
+  - **Github Username:** zarinkhan2023 
+  - **Niner Net ID:** zkhan7
+- **Team Member Name:** Huong Tran 
+  - **Github Username:** htranhp1213
+  - **Niner Net ID:** htran55 
+- **Team Member Name:** Hsomot Siu
+  - **Github Username:** hsomotsiu
+  - **Niner Net ID:** hsiu3
+- **Team Member Name:** Sahiti Modulga
+  - **Github Username:** smoduga02
+  - **Niner Net ID:** smoduga
