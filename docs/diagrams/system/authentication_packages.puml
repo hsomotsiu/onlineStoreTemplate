@@ -1,0 +1,17 @@
+@startuml packages
+set namespaceSeparator none
+
+package "authentication" as authentication #aliceblue {
+  package "auth_tools" as auth_tools #lightblue {
+    class "password_manager" as password_manager #orange
+  }
+}
+
+class "main" as main #orange
+
+main --> authentication.auth_tools.password_manager : uses
+authentication.auth_tools.password_manager --> "hashlib.sha512" : uses
+authentication.auth_tools.password_manager --> "os.urandom" : uses
+authentication.auth_tools.password_manager --> "io.open" : uses
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml BakeryOrder
+left to right direction
+
+actor Customer as customer #lightblue
+
+customer -> System: Login
+
+System -> Authentication: Validate login credentials
+Authentication --> System: Login success
+
+customer -> System: Create Account
+customer -> System: View Profile
+customer -> System: Select Cake
+customer -> System: Select Bread
+customer -> System: Submit Order
+customer -> System: Approve Order
+
+System -> Order: Record customer's order
+Order --> System: Order details received
+
+System -> Order: Generate order number
+Order --> System: Order number generated
+
+System --> customer: Order number received
+
+customer -> System: Logout
+
+System --> customer: Redirect to home page
+
+@enduml
+

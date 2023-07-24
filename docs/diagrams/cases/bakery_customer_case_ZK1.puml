@@ -1,0 +1,27 @@
+@startuml Bakery_customer_case_ZK1
+left to right direction
+actor Customer
+rectangle "Order" as order {
+  (Create account)
+  (Login)
+  (Fill in First Name)
+  (Fill in Last Name)
+  (Fill in Email)
+  (Select Cake)
+  (Select Bread)
+  (Click sumbit)
+  (confirm submission)
+  (Get Order Number)
+  (Logout)
+}
+Customer --> (Create account)
+Customer --> (Login)
+Customer -->  (Fill in First Name)
+Customer --> (Fill in Last Name)
+Customer -->  (Fill in Email)
+Customer --> (Select Cake)
+Customer --> (Select Bread)
+Customer --> (Click sumbit)
+Customer --> (confirm submission)
+Customer --> (Logout)
+@enduml

@@ -1,0 +1,14 @@
+@startuml Order_number_name_ZK2
+left to right direction
+actor Customer
+rectangle "Order Number" as order_number {
+  (Login)
+   (View profile)
+  (Select past order)
+  (Logout)
+}
+Customer --> (Login)
+Customer -->  (View profile)
+Customer --> (Select past order)
+Customer --> (Logout)
+@enduml
