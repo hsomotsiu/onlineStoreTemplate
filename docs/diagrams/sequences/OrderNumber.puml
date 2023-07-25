@@ -4,7 +4,6 @@ left to right direction
 actor Customer as customer #lightblue
 
 rectangle "Order Number" as order_number {
-  (Login)
   (View profile)
   (Select past order)
   (Logout)
