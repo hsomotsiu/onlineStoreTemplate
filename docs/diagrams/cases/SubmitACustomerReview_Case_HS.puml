@@ -1,0 +1,19 @@
+@startuml SubmitACustomerReview_Case_HS
+
+left to right direction
+actor Customer
+
+rectangle "Submit a Review" as submit_review {
+    (View Product)
+    (Write Review)
+    (Submit Review)
+}
+
+Customer --> (View Product)
+Customer --> (Write Review)
+Customer --> (Submit Review)
+
+submit_review ..> (Customer has bought a product)
+
+@enduml
+
