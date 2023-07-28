@@ -1,0 +1,17 @@
+@startuml View_Reviews_Case_HS
+
+left to right direction
+actor Customer
+
+rectangle "Viewing Bakery Item Reviews" as view_reviews {
+    (Browse Bakery Items)
+    (Select Item)
+    (View Item Reviews)
+}
+
+Customer --> (Browse Bakery Items)
+Customer --> (Select Item)
+Customer --> (View Item Reviews)
+
+
+@enduml

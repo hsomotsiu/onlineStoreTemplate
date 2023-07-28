@@ -1,0 +1,13 @@
+@startuml ViewReviews_HS
+
+actor Customer
+participant "Website" as website
+database "Database" as database
+
+Customer -> website: Login
+Customer -> website: Browse Bakery Items
+Customer -> website: Select Item
+website -> database: Retrieve Item Reviews
+website --> Customer: Display Item Reviews
+
+@enduml
