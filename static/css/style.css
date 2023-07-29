@@ -195,11 +195,13 @@
 .review-container {
     text-align: center;
     border-radius: 20px;
-    background-color: #ffffff;
+    background-color: rgb(241, 170, 213);
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(215, 93, 93, 0.2);
     max-width: 400px;
     margin: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
 label {
@@ -213,21 +215,24 @@ textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid pink;
     border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 input[type="submit"] {
     border-radius: 20px;
-    background-color: #007BFF;
+    background-color: rgb(202, 98, 157);
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: rgb(209, 134, 193);
 }
