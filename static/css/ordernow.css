@@ -1,0 +1,67 @@
+body {
+    background-color: rgba(255, 235, 246, 1);
+    font-family: Arial, sans-serif;
+    color: #000000;
+}
+
+h2 {
+    color: #000000;
+    text-align: center;
+    font-size: 32px;
+}
+
+.intro-box {
+    background-color: rgba(255, 200, 240, 1);
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.functions-box {
+    background-color: #ffb3d1; /* Lighter pink color */
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+form {
+    padding: 20px;
+    border: 2px solid #ff0080;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #ff0080;
+    color: #000000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

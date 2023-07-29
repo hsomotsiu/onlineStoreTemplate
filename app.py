@@ -136,6 +136,55 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
+# Placeholder function to simulate retrieving bakery options from the database
+def get_bakeries():
+    # Replace this with your actual database query to get bakery options
+    return ["Bakery A", "Bakery B", "Bakery C"]
+
+# Placeholder function to simulate saving order details to the database
+def place_order_in_database(first_name, last_name, email, pick_up_date, customization_note, selected_bakery_1, selected_bakery_2, selected_bakery_3):
+    # Replace this with your actual database insertion logic
+    # For now, we will print the order details
+    print("Order Details:")
+    print(f"First Name: {first_name}")
+    print(f"Last Name: {last_name}")
+    print(f"Email: {email}")
+    print(f"Pick-up Date: {pick_up_date}")
+    print(f"Customization Note: {customization_note}")
+    print(f"Selected Bakery 1: {selected_bakery_1}")
+    print(f"Selected Bakery 2: {selected_bakery_2}")
+    print(f"Selected Bakery 3: {selected_bakery_3}")
+    print("Order saved to the database.")
+
+# Add a new route for the "Order Now" page
+@app.route('/order', methods=['GET'])
+def order_now():
+    # Retrieve the bakery options from the database
+    bakeries = get_bakeries()
+
+    # Pass the bakery options to the template
+    return render_template('ordernow.html', bakeries=bakeries)
+
+# Route to handle the order submission
+@app.route('/place_order', methods=['POST'])
+def place_order():
+    # Retrieve the form data from the submitted order
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    pick_up_date = request.form['pickUpDate']
+    customization_note = request.form['customizationNote']
+    selected_bakery_1 = request.form['selectBakery1']
+    selected_bakery_2 = request.form['selectBakery2']
+    selected_bakery_3 = request.form['selectBakery3']
+
+    # Process the order and save it to the database or perform any other necessary actions
+    # For example:
+    # place_order_in_database(first_name, last_name, email, pick_up_date, customization_note, selected_bakery_1, selected_bakery_2, selected_bakery_3)
+
+    # Return a response to the user (e.g., a thank you message)
+    return "Thank you for your order! We will prepare your treats for the pick-up date."
+
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)

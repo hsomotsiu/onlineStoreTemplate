@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="intro-box">
+    <h2>Order now</h2>
+    <link rel="stylesheet" href="/static/css/ordernow.css">
+    <p>
+        We kindly request you to pick up your orders within the designated 2-hour window, as indicated in the
+        customization section. To ensure the freshness of our delightful treats, any unclaimed orders will be sold
+        after this period. Please note that all payments must be made in-store.
+    </p>
+</div>
+
+<form action="/place_order" method="post">
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="first_name" required><br>
+
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="last_name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="selectBakery1">Select Bakery 1*:</label>
+    <select id="selectBakery1" name="selectBakery1" required>
+        {% for bakery in bakeries %}
+            <option value="{{ bakery }}">{{ bakery }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="selectBakery2">Select Bakery 2:</label>
+    <select id="selectBakery2" name="selectBakery2">
+        {% for bakery in bakeries %}
+            <option value="{{ bakery }}">{{ bakery }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="selectBakery3">Select Bakery 3:</label>
+    <select id="selectBakery3" name="selectBakery3">
+        {% for bakery in bakeries %}
+            <option value="{{ bakery }}">{{ bakery }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label for="pickUpDate">Pick up date:</label>
+    <input type="date" id="pickUpDate" name="pickUpDate" required><br>
+
+    <label for="customizationNote">Customization Note:</label><br>
+    <textarea id="customizationNote" name="customizationNote" rows="4" cols="50"></textarea><br>
+
+    <!-- Add customization options here (e.g., checkboxes, radio buttons, etc.) -->
+
+    <input type="submit" value="Submit Order">
+</form>
+{% endblock %}
