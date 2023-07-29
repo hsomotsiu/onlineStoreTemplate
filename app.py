@@ -163,7 +163,7 @@ def order_now():
     bakeries = get_bakeries()
 
     # Pass the bakery options to the template
-    return render_template('ordernow.html', bakeries=bakeries)
+    return render_template('ordernow_page.html', bakeries=bakeries)
 
 # Route to handle the order submission
 @app.route('/place_order', methods=['POST'])
