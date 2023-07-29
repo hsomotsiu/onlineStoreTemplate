@@ -1,3 +1,7 @@
+.body{
+    background-color: #FFEBF6;
+}
+
 #index_buttons {
     padding-top: 15px;
     margin: 0 auto;
@@ -43,10 +47,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width: 302px;
-    background-color: #cac2c2;
-    border: 1px solid rgb(178, 178, 178);
-    height: 500px;
+    background-color: #e7a3d7;
+    border: 1px solid rgb(209, 134, 193);
+    height: 350px;
 }
+
 
 .product_card-img {
     width: 300px;
@@ -119,4 +124,110 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.navcontainer {
+    border-radius: 40px;
+    background-color: #8bc34a; 
+    
+    padding: 10px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar a:not(:last-child) {
+    margin-right: 10px;
+}
+.navbar a:hover {
+    background-color: pink;
+    border-radius: 50px; 
+    color: greenyellow;
+}
+
+.banner {
+    margin-top: 70px;
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #B1CDF7;
+    display: flex;
+    justify-content: center;
+}
+
+.pink-text {
+    color: rgb(235, 96, 195);
+    font-size: 70px;
+    margin: 0;
+    padding: 20px 30px;
+    position: relative;
+    z-index: 1;
+    padding: 5px 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.slogancontainer{
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 50px;
+    display: flex;
+    background-color: pink;
+    margin-bottom: 20px;
+}
+.slogan{
+    color: yellow;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 0;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.review-container {
+    text-align: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    border-radius: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
 }

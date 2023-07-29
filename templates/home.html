@@ -1,11 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="navcontainer">
+    <nav class="navbar">
+            <a href="/home">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/order">Order Now</a>
+            <a href="/register">Register</a>
+    </nav>
+</div>
+<div class="banner">
+    <h1 class="pink-text">Luna's Bakery</h1>
+</div>
+<div class="slogancontainer">
+    <h1 class="slogan"> &#9829; Where your sweet dreams come true! &#9829; </h1>
+</div>
+<br>
 
 <div class="row" id="products_page">
     <div class="col-md-12">
-        <h3>Products</h3>
-        <hr>
         <div class="row">
             <form action="/checkout" method="post">
                 <div class="form-group">
@@ -16,21 +29,37 @@
                                 <img src="{{ product.image_url }}" class="product_card-img" alt="...">
                                 <div class="product_card-body">
                                     <h5 class="product_card-title">{{ product.item_name }}</h5>
-                                    <p class="product_card-text">{{ product.info }}</p>
-                                    <p class="product_card-price">${{ product.price }}</p>
-                                    <input type="number" class="quantity" id={{product.id}} name={{product.id}}
-                                        placeholder="0">
+                        
                                 </div>
                             </div>
                         </div>
                         {% endfor %}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12" id="index_buttons">
-                        <button type="submit" class="btn btn-primary" id="checkout_button">Order</button>
-                    </div>
                 </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="reviewcontainer">
+        <h1>Review</h1>
+        <div class="review-container">
+            <h1>Leave a Review</h1>
+            <form>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required><br>
+    
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required><br>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+    
+                <label for="review">Review:</label>
+                <textarea id="review" name="review" rows="4" cols="50" required></textarea><br>
+    
+                <input type="submit" value="Submit">
             </form>
         </div>
     </div>
