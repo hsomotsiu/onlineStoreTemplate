@@ -1,4 +1,4 @@
-.body{
+.body {
     background-color: #FFEBF6;
 }
 
@@ -128,10 +128,11 @@
 
 .navcontainer {
     border-radius: 40px;
-    background-color: #8bc34a; 
-    
+    background-color: #7AADE1;
+
     padding: 10px;
 }
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -142,24 +143,25 @@
     text-decoration: none;
     color: white;
     font-size: 30px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .navbar a:not(:last-child) {
     margin-right: 10px;
 }
+
 .navbar a:hover {
-    background-color: pink;
-    border-radius: 50px; 
-    color: greenyellow;
+    background-color: #F093B2;
+    border-radius: 50px;
+    color: white;
 }
 
-.banner {
+/* .banner {
     margin-top: 70px;
     position: relative;
     text-align: center;
     border-radius: 20px;
-    background-color: #B1CDF7;
+    background-color: #D0C5E8;
     display: flex;
     justify-content: center;
 }
@@ -173,23 +175,46 @@
     z-index: 1;
     padding: 5px 10px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.slogancontainer{
-    margin-top: 5px;
+}*/
+.banner {
+    margin-top: 25px;
+    position: relative;
     text-align: center;
-    border-radius: 50px;
-    display: flex;
-    background-color: pink;
     margin-bottom: 20px;
 }
-.slogan{
-    color: yellow;
-    font-weight: bold;
-    font-size: 40px;
-    margin: 0;
-    padding: 20px;
+
+.banner-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: flex;
+
+}
+
+.slogancontainer {
+    margin-top: 25px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.slogan {
+
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: flex;
+}
+
+.review {
+    background-color: whitesmoke;
+    text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 4px dotted #F093B2;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
 .review-container {
@@ -198,11 +223,12 @@
     background-color: rgb(241, 170, 213);
     padding: 20px;
     box-shadow: 0 0 10px rgba(215, 93, 93, 0.2);
-    max-width: 400px;
+    max-width: 800px;
     margin: auto;
+    margin-bottom: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
+
 
 label {
     display: block;
@@ -228,11 +254,46 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px #FDC149;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
 input[type="submit"]:hover {
     background-color: rgb(209, 134, 193);
+}
+
+.ContactContainer {
+    margin-top: 40px;
+    background-color: white;
+    border: 4px dashed #7AADE1;
+    padding: 20px;
+}
+
+.ContactInformation {
+    font-size: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contactus {
+    border: 2px dashed rgb(209, 134, 193);
+    text-align: center;
+    font-weight: bold;
+}
+.aboutuscontainer{
+    background-color: #efdbea;
+    border-radius: 20px;
+}
+.about-us{
+    border: 4px dotted pink;
+    padding-top: 5px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 12px;
+}
+.paragraph-us{
+    padding: 20px;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
