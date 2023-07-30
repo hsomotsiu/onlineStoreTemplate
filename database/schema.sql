@@ -28,3 +28,11 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
+CREATE TABLE reviews (
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    review TEXT NOT NULL
+);
+
+

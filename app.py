@@ -138,6 +138,8 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
+
+
 # Placeholder function to simulate retrieving bakery options from the database
 def get_bakeries():
     # Replace this with your actual database query to get bakery options
@@ -187,6 +189,15 @@ def place_order():
     # Return a response to the user (e.g., a thank you message)
     return "Thank you for your order! We will prepare your treats for the pick-up date."
 
+@app.route('/review', methods=['POST'])
+def review():
+
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    review = request.form['review']
+    db.insert_new_review(first_name, last_name, email, review)
+    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
