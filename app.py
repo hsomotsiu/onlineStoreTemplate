@@ -42,8 +42,7 @@ def login_page():
     """
     return render_template('login.html')
 
-
-@app.route('/home', methods=['POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def login():
     """
     Renders the home page when the user is at the `/home` endpoint with a POST request.
@@ -58,15 +57,18 @@ def login():
         - sessions: adds a new session to the sessions object
 
     """
-    username = request.form['username']
-    password = request.form['password']
-    if login_pipeline(username, password):
-        sessions.add_new_session(username, db)
-        return render_template('home.html', products=products, sessions=sessions)
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if login_pipeline(username, password):
+            sessions.add_new_session(username, db)
+            return render_template('home.html', products=products, sessions=sessions)
+        else:
+            print(f"Incorrect username ({username}) or password ({password}).")
+            return render_template('index.html')
     else:
-        print(f"Incorrect username ({username}) or password ({password}).")
-        return render_template('index.html')
-
+        # Handle the GET request (render the home page)
+        return render_template('home.html', products=products, sessions=sessions)
 
 @app.route('/register')
 def register_page():
