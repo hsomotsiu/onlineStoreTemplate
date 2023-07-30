@@ -167,26 +167,33 @@ def order_now():
     # Pass the bakery options to the template
     return render_template('ordernow.html', bakeries=bakeries)
 
-# Route to handle the order submission
 @app.route('/place_order', methods=['POST'])
 def place_order():
     # Retrieve the form data from the submitted order
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     email = request.form['email']
+    phone = request.form['phone']  # Retrieve the phone number field
     pick_up_date = request.form['pickUpDate']
     customization_note = request.form['customizationNote']
     selected_bakery_1 = request.form['selectBakery1']
     selected_bakery_2 = request.form['selectBakery2']
     selected_bakery_3 = request.form['selectBakery3']
 
-    # Process the order and save it to the database or perform any other necessary actions
-    # For example:
-    # place_order_in_database(first_name, last_name, email, pick_up_date, customization_note, selected_bakery_1, selected_bakery_2, selected_bakery_3)
+    # Perform any necessary calculations to get the total price
+    # For example, assuming each bakery item has a price associated with it:
+    bakery_prices = {
+        "Bakery A": 5.99,
+        "Bakery B": 4.99,
+        "Bakery C": 6.49,
+    }
+    total_price = bakery_prices.get(selected_bakery_1, 0) + bakery_prices.get(selected_bakery_2, 0) + bakery_prices.get(selected_bakery_3, 0)
 
-    # Return a response to the user (e.g., a thank you message)
-    return "Thank you for your order! We will prepare your treats for the pick-up date."
-
+    # Render the totalprice.html template with the order details and total price
+    return render_template('totalprice.html', first_name=first_name, last_name=last_name, email=email, phone=phone,
+                           pick_up_date=pick_up_date, customization_note=customization_note,
+                           selected_bakery_1=selected_bakery_1, selected_bakery_2=selected_bakery_2,
+                           selected_bakery_3=selected_bakery_3, total_price=total_price)
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)

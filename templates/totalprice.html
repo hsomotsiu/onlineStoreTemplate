@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/totalprice.css">
+{% endblock %}
+
+{% block content %}
+<div class="function-box">
+    <h2>Order Confirmation</h2>
+    <p><strong>Name:</strong> {{ first_name }} {{ last_name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone:</strong> {{ phone }}</p>  
+    <p><strong>Pick-up Date:</strong> {{ pick_up_date }}</p>
+    <p><strong>Customization Note:</strong> {{ customization_note }}</p>
+    <p><strong>Selected Bakery 1:</strong> {{ selected_bakery_1 }}</p>
+    <p><strong>Selected Bakery 2:</strong> {{ selected_bakery_2 }}</p>
+    <p><strong>Selected Bakery 3:</strong> {{ selected_bakery_3 }}</p>
+    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+    <p class="confirmation-message">Thank you for your order! We will prepare your treats for the pick-up date.</p>
+</div>
+{% endblock %}

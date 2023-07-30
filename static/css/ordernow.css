@@ -47,6 +47,7 @@ label {
 
 input[type="text"],
 input[type="email"],
+input[type="tel"], 
 select,
 textarea {
     width: 95%;
@@ -64,4 +65,3 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
 }
-
