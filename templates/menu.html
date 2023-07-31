@@ -5,37 +5,17 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Additional styles specific to the menu page -->
     <style>
-        /* Add your custom CSS styles for the menu page here */
-        .menu-section {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #FFEBF6;
-            border-radius: 5px;
-        }
-        .menu-item {
-            display: flex; /* Add flexbox to arrange items side by side */
-            align-items: center; /* Vertically align image and info */
-            margin-bottom: 20px; /* Add space between menu items */
-        }
-        .menu-item-info {
-            flex: 1; /* Let the info take all available space */
-            margin-left: 20px; /* Add space between image and info */
-        }
-        .menu-item-price {
-            font-weight: bold;
-            color: #009688;
-        }
-        .menu-item-image {
-            max-width: 200px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+       
+        /* Additional styling for categories */
+        
     </style>
 {% endblock %}
 
 {% block content %}
     <!-- Menu content -->
     <div class="menu-section">
+        <!-- Cake category -->
+        <div class="category-title">Cake</div>
         <!-- Item 1 -->
         <div class="menu-item">
             <img src="static/images/fruitCake.jpeg" alt="Fruit Sponge Cake" class="menu-item-image">
@@ -46,6 +26,8 @@
             </div>
         </div>
 
+        <!-- Cupcake category -->
+        <div class="category-title">Cupcake</div>
         <!-- Item 2 -->
         <div class="menu-item">
             <img src="static/images/cupcake.png" alt="Cupcake" class="menu-item-image">
@@ -56,6 +38,8 @@
             </div>
         </div>
 
+        <!-- Bread category -->
+        <div class="category-title">Bread</div>
         <!-- Item 3 -->
         <div class="menu-item">
             <img src="static/images/milkBread.jpeg" alt="Milk Bread" class="menu-item-image">
