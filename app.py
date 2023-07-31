@@ -63,6 +63,8 @@ def login():
         if login_pipeline(username, password):
             sessions.add_new_session(username, db)
             return render_template('home.html', products=products, sessions=sessions)
+        elif username == 'admin':
+            return render_template('admin/admin_home.html', products=products)
         else:
             print(f"Incorrect username ({username}) or password ({password}).")
             return render_template('index.html')
