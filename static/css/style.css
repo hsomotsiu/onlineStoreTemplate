@@ -289,28 +289,57 @@ input[type="submit"]:hover {
     border-radius: 5px;
 }
 .menu-item {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 20px; 
+    display: flex; /* Add flexbox to arrange items side by side */
+    align-items: center; /* Vertically align image and info */
+    margin-bottom: 20px; /* Add space between menu items */
+    justify-content: space-between;
 }
 .menu-item-info {
-    flex: 1; 
-    margin-left: 20px; 
+    flex: 1; /* Let the info take all available space */
+    margin-left: 20px; /* Add space between image and info */
 }
 .menu-item-price {
     font-weight: bold;
-    color: #009688;
+    color: #3f8fdf;
 }
 .menu-item-image {
-    max-width: 200px;
+    max-width: 300px;
     border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.menu-item-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Bakery';
+    src: url('/Bakery.ttf') format('opentype');
+}
+
+.category-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 30px;
+    font-family: "Bakery", cursive;
+}
+
+/* Update active link styles */
+nav li a.active {
+    background-color: #F093B2 ;
     border-radius: 5px;
 }
 
 .category-title {
-    font-size: 20px;
-    font-weight: bold;
     margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .admin-header {
