@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<h1>Reviews</h1>
+<h1 class="admin-header">Luna's Bakery Review</h1>
 
 {% for rev in reviews %}
-<div>
-    <a>{{ rev.first_name}}</a>
-    <a>{{ rev.last_name}}</a>
-    <a>{{rev.email}}</a>
-    <p>{{ rev.review }}</p>
+<div class="admin-reviewcontent">
+    <a>First Name: {{ rev.first_name}},</a>
+    <a>Last Name: {{ rev.last_name}},</a>
+    <a> Email: {{rev.email}}</a>
+    <p> reviews: {{ rev.review }}</p>
 </div>
 
 {% endfor %}
