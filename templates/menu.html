@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 
 {% block head %}
+
     
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Additional styles specific to the menu page -->
     <style>
        
-        /* Additional styling for categories */
+        /* Update active link styles */
+        .active {
+            background-color: #F093B2 ;
+            border-radius: 5px;
+        }
         
     </style>
 {% endblock %}
@@ -18,15 +23,19 @@
         <div class="category-title">Cake</div>
         {% for product in products %}
         {% if product.category == "Cake" %}
-        <div class="menu-item">
+        <div class="menu-item-container">
 
             <!-- Image with name and info -->
             <img src="{{ product.image_url }}" alt="{{ product.item_name }}" class="menu-item-image">
+            
             <div class="menu-item-info">
                 <h5>{{ product.item_name }}</h5>
                 <p>{{ product.info }}</p>
-                <div class="menu-item-price">${{ product.price }}</div>
+                
             </div>
+
+            <!-- Price on the right -->
+            <div class="menu-item-price">${{ product.price }}</div>
         </div>
         {% endif %}
         {% endfor %}
@@ -34,15 +43,19 @@
         <div class="category-title">Cupcake</div>
         {% for product in products %}
         {% if product.category == "Cupcake" %}
-        <div class="menu-item">
+        <div class="menu-item-container">
 
             <!-- Image with name and info -->
             <img src="{{ product.image_url }}" alt="{{ product.item_name }}" class="menu-item-image">
+            
             <div class="menu-item-info">
                 <h5>{{ product.item_name }}</h5>
                 <p>{{ product.info }}</p>
-                <div class="menu-item-price">${{ product.price }}</div>
+                
             </div>
+
+            <div class="menu-item-price">${{ product.price }}</div>
+
         </div>
         {% endif %}
         {% endfor %}
@@ -50,17 +63,29 @@
         <div class="category-title">Bread</div>
         {% for product in products %}
         {% if product.category == "Bread" %}
-        <div class="menu-item">
+        <div class="menu-item-container">
 
             <!-- Image with name and info -->
             <img src="{{ product.image_url }}" alt="{{ product.item_name }}" class="menu-item-image">
+            
             <div class="menu-item-info">
                 <h5>{{ product.item_name }}</h5>
                 <p>{{ product.info }}</p>
-                <div class="menu-item-price">${{ product.price }}</div>
+                
             </div>
+
+            <div class="menu-item-price">${{ product.price }}</div>
+
         </div>
         {% endif %}
         {% endfor %}
         
+{% endblock %}
+
+{% block menu_active %}
+    <script>
+        // JavaScript code to set the "Menu" navigation item as active
+        const menuNav = document.querySelector('a[href="/menu"]');
+        menuNav.classList.add('active');
+    </script>
 {% endblock %}

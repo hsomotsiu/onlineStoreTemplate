@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: rgba(255, 195, 246, 20);
+            color: ;
+            padding: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(134, 201, 82, 1);
+            padding: 10px;
+            border-radius: 20px; /* Add rounded corners */
+        }
+        nav a {
+            color: black;
+            /*text-decoration: ;*/
+            padding: 8px 16px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(134, 201, 82, 1);
+        }
+
+        /* Update active link styles */
+        nav a.active {
+            background-color: greenyellow ;
+            border-radius: 5px;
+        }
+
+        /*Customize signup button*/ 
+        nav a.signup {
+            background-color: rgba(82, 201, 201, 1);
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+        
+    
+</head>
+<body>
+    <header>
+        <h1>LUNA'S BAKERY</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#" class="active"> Menu</a>
+        <a href="#">About Us</a>
+        <a href="#">Order Now</a>
+        <a href="#" class="signup">Sign Up</a>
+    </nav>
+    <main>
+        <h1>Welcome to Our Menu</h1>
+        <!-- Add your menu content here -->
+    </main>
+</body>
+</html>
