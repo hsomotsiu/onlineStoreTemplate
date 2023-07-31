@@ -1,0 +1,14 @@
+{% extends "admin/admin_layout.html" %}
+
+{% block content %}
+
+<h1>Reviews</h1>
+
+{% for rev in reviews %}
+<div>
+    <p>{{ rev.review }}</p>
+</div>
+
+{% endfor %}
+
+{% endblock %}
