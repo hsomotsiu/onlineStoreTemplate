@@ -88,7 +88,8 @@ class Database:
         returns:
             - List of the full inventory table from the database.
         """
-        self.cursor.execute("SELECT * FROM inventory")
+        #self.cursor.execute("SELECT * FROM inventory")
+        self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
         return self.cursor.fetchall()
 
     def get_all_item_ids(self):
