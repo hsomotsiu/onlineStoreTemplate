@@ -1,0 +1,18 @@
+@startuml View_Purchase_History_HT
+
+left to right direction
+actor Customer
+
+rectangle "View Purchase History" as view_purchase_history {
+  (Login)
+  (View profile)
+  (Track purchase history)
+  (Logout)
+}
+
+Customer --> (Login)
+Customer -->  (View profile)
+Customer --> (Track purchase history)
+Customer --> (Logout)
+
+@endum

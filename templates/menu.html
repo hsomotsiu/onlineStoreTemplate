@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <h2>Menu</h2>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Additional styles specific to the menu page -->
+    <style>
+        /* Add your custom CSS styles for the menu page here */
+        .menu-section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #FFEBF6;
+            border-radius: 5px;
+        }
+        .menu-item {
+            display: flex; /* Add flexbox to arrange items side by side */
+            align-items: center; /* Vertically align image and info */
+            margin-bottom: 20px; /* Add space between menu items */
+        }
+        .menu-item-info {
+            flex: 1; /* Let the info take all available space */
+            margin-left: 20px; /* Add space between image and info */
+        }
+        .menu-item-price {
+            font-weight: bold;
+            color: #009688;
+        }
+        .menu-item-image {
+            max-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Menu content -->
+    <div class="menu-section">
+        <!-- Item 1 -->
+        <div class="menu-item">
+            <img src="static/images/fruitCake.jpeg" alt="Fruit Sponge Cake" class="menu-item-image">
+            <div class="menu-item-info">
+                <h5>Fruit Sponge Cake</h5>
+                <p>A soft and light airy whipped cream with fruit cake</p>
+                <div class="menu-item-price">$20.00</div>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item">
+            <img src="static/images/cupcake.png" alt="Cupcake" class="menu-item-image">
+            <div class="menu-item-info">
+                <h5>Cupcake</h5>
+                <p>Pink cupcake with marble cream cheese frosting (sale by dozen)</p>
+                <div class="menu-item-price">$10.00</div>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item">
+            <img src="static/images/milkBread.jpeg" alt="Milk Bread" class="menu-item-image">
+            <div class="menu-item-info">
+                <h5>Milk Bread</h5>
+                <p>Signature milk bread</p>
+                <div class="menu-item-price">$4.00</div>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item">
+            <img src="static/images/frenchBread.jpeg" alt="French Bread" class="menu-item-image">
+            <div class="menu-item-info">
+                <h5>French Bread</h5>
+                <p>Baguette</p>
+                <div class="menu-item-price">$1.00</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

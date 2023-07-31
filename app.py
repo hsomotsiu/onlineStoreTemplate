@@ -195,5 +195,22 @@ def place_order():
                            selected_bakery_1=selected_bakery_1, selected_bakery_2=selected_bakery_2,
                            selected_bakery_3=selected_bakery_3, total_price=total_price)
 
+
+
+
+@app.route('/menu')
+def menu_page():
+    """
+    Renders the menu page when the user is at the `/menu` endpoint.
+
+    args:
+        - None
+
+    returns:
+        - None
+    """
+    return render_template('menu.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
