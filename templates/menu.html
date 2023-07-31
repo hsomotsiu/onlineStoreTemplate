@@ -15,16 +15,24 @@
     <!-- Menu content -->
     <div class="menu-section">
 
-        <!-- Cake category -->
+        {% for product in products %}
+
+        <!-- Product Categories -->
+        {% if product.category == "Cake" %}
         <div class="category-title">Cake</div>
-        <!-- Cupcake category -->
+
+        {% elif product.category == "Cupcake" %}
         <div class="category-title">Cupcake</div>
-        <!-- Bread category -->
+
+        {% elif product.category == "Bread" %}
         <div class="category-title">Bread</div>
 
-
-        {% for product in products %}
+        {% endif %}
+        
+        <!-- Menu Item Column -->
         <div class="menu-item">
+
+            <!-- Image with name and info -->
             <img src="{{ product.image_url }}" alt="{{ product.item_name }}" class="menu-item-image">
             <div class="menu-item-info">
                 <h5>{{ product.item_name }}</h5>
@@ -32,6 +40,7 @@
                 <div class="menu-item-price">${{ product.price }}</div>
             </div>
         </div>
+        
         {% endfor %}
         
 {% endblock %}
