@@ -43,6 +43,18 @@ class Database:
             "INSERT INTO reviews (first_name, last_name, email, review) VALUES (?, ?, ?, ?)", (first_name, last_name, email, review))
         self.connection.commit()
 
+    def get_all_reviews(self):
+        """
+        Gets all reviews in the database.
+
+        args:
+            - None
+
+        returns:
+            - List of the full reviews table from the database.
+        """
+        self.cursor.execute("SELECT * FROM reviews")
+        return self.cursor.fetchall()
 
     # --------------------------------------------
     # ----------------- INVENTORY ----------------

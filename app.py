@@ -7,10 +7,11 @@ from core.session import Sessions
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
-global username, products, db, sessions
+global username, products, reviews, db, sessions
 username = 'default'
 db = Database('database/store_records.db')
 products = db.get_full_inventory()
+reviews = db.get_all_reviews()
 sessions = Sessions()
 sessions.add_new_session(username, db)
 
@@ -28,6 +29,9 @@ def index_page():
     """
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    return render_template('admin/admin_dashboard.html', reviews=reviews)
 
 @app.route('/login')
 def login_page():
