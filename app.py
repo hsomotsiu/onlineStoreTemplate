@@ -7,10 +7,11 @@ from core.session import Sessions
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
-global username, products, db, sessions
+global username, products, reviews, db, sessions
 username = 'default'
 db = Database('database/store_records.db')
 products = db.get_full_inventory()
+reviews = db.get_all_reviews()
 sessions = Sessions()
 sessions.add_new_session(username, db)
 
@@ -28,6 +29,9 @@ def index_page():
     """
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    return render_template('admin/admin_dashboard.html', reviews=reviews)
 
 @app.route('/login')
 def login_page():
@@ -63,6 +67,8 @@ def login():
         if login_pipeline(username, password):
             sessions.add_new_session(username, db)
             return render_template('home.html', products=products, sessions=sessions)
+        elif username == 'admin':
+            return render_template('admin/admin_home.html', products=products)
         else:
             print(f"Incorrect username ({username}) or password ({password}).")
             return render_template('index.html')
@@ -109,6 +115,16 @@ def register():
     db.insert_user(username, key, email, first_name, last_name)
     return render_template('index.html')
 
+@app.route('/reset_password')
+def reset_password_page():
+    return render_template('reset_password.html')
+
+@app.route('/reset_password', methods=['POST'])
+def reset_password():
+    username = request.form['username']
+    new_password = request.form['new_password']
+    db.set_password_hash(new_password, username)
+    return render_template('login.html')
 
 @app.route('/checkout', methods=['POST'])
 def checkout():
