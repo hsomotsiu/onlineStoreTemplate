@@ -111,6 +111,16 @@ def register():
     db.insert_user(username, key, email, first_name, last_name)
     return render_template('index.html')
 
+@app.route('/reset_password')
+def reset_password_page():
+    return render_template('reset_password.html')
+
+@app.route('/reset_password', methods=['POST'])
+def reset_password():
+    username = request.form['username']
+    new_password = request.form['new_password']
+    db.set_password_hash(new_password, username)
+    return render_template('login.html')
 
 @app.route('/checkout', methods=['POST'])
 def checkout():
