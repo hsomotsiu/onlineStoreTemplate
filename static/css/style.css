@@ -289,13 +289,14 @@ input[type="submit"]:hover {
     border-radius: 5px;
 }
 .menu-item {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 20px; 
+    display: flex; /* Add flexbox to arrange items side by side */
+    align-items: center; /* Vertically align image and info */
+    margin-bottom: 20px; /* Add space between menu items */
+    justify-content: space-between;
 }
 .menu-item-info {
-    flex: 1; 
-    margin-left: 20px; 
+    flex: 1; /* Let the info take all available space */
+    margin-left: 20px; /* Add space between image and info */
 }
 .menu-item-price {
     font-weight: bold;
