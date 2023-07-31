@@ -24,16 +24,32 @@
             <form action="/checkout" method="post">
                 <div class="form-group">
                     <div class="row">
-                        {% for product in products %}
+
                         <div class="col-md-4">
                             <div class="product_card" id="product_card">
-                                <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                                <a href="/menu"><img src="/static/images/apple.jpeg" class="product_card-img" alt="..."></a>
                                 <div class="product_card-body">
-                                    <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                    <h5 class="product_card-title">Apple</h5>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        <div class="col-md-4">
+                            <div class="product_card" id="product_card">
+                                <a href="/menu"><img src="/static/images/mango.jpeg" class="product_card-img" alt="..."></a>
+                                <div class="product_card-body">
+                                    <h5 class="product_card-title">Mango</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product_card" id="product_card">
+                                <a href="/menu"><img src="/static/images/banana.jpeg" class="product_card-img" alt="..."></a>
+                                <div class="product_card-body">
+                                    <h5 class="product_card-title">Banana</h5>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 </div>
@@ -44,24 +60,25 @@
     <hr>
     <div class="review">
         <h1>Review</h1>
+
         <div class="review-container">
-            <h1>Leave us a review!</h1>
-            <form>
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required><br>
-    
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required><br>
-    
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-    
-                <label for="review">Review:</label>
-                <textarea id="review" name="review" rows="4" cols="50" required></textarea><br>
-    
-                <input type="submit" value="Submit">
+            <form action="/review" method="POST">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" id="first_name">
+
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name" id="last_name">
+
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email">
+
+                    <label for="review">Review</label>
+                    <input type="text" name="review" id="review">
+
+                <button type="submit">Submit</button>
             </form>
         </div>
+
     </div>
     <hr>
     <div class="ContactContainer">

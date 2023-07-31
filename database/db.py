@@ -23,6 +23,27 @@ class Database:
         self.connection.row_factory = dict_factory
         self.cursor = self.connection.cursor()
 
+
+    #---------------------------------------------
+    #--------------------Review-------------------
+    #---------------------------------------------
+    def insert_new_review(self, first_name: str, last_name: str, email: str, review: str) -> None:
+        """
+        Inserts a new item_item into the database.
+
+        args:
+            - item_name: The name of the item.
+            - price: The price of the item.
+            - info: The info of the item.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "INSERT INTO reviews (first_name, last_name, email, review) VALUES (?, ?, ?, ?)", (first_name, last_name, email, review))
+        self.connection.commit()
+
+
     # --------------------------------------------
     # ----------------- INVENTORY ----------------
     # --------------------------------------------
