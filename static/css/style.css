@@ -289,14 +289,13 @@ input[type="submit"]:hover {
     border-radius: 5px;
 }
 .menu-item {
-    display: flex; /* Add flexbox to arrange items side by side */
-    align-items: center; /* Vertically align image and info */
-    margin-bottom: 20px; /* Add space between menu items */
-    justify-content: space-between;
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
 }
 .menu-item-info {
-    flex: 1; /* Let the info take all available space */
-    margin-left: 20px; /* Add space between image and info */
+    flex: 1; 
+    margin-left: 20px; 
 }
 .menu-item-price {
     font-weight: bold;
@@ -342,3 +341,31 @@ nav li a.active {
     font-weight: bold;
 }
 
+.admin-header {
+    background-color: #e7a3d7;
+    border-radius: 20px;
+    border: 4px dashed rgb(209, 134, 193);
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    
+  }
+  
+  .admin-reviewcontent {
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    border: 4px dashed rgb(209, 134, 193);;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+.admin-reviewcontent {
+    padding: 10px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+  }
