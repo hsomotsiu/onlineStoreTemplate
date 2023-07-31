@@ -32,6 +32,7 @@ def index_page():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
+    reviews = db.get_all_reviews()
     return render_template('admin/admin_dashboard.html', reviews=reviews)
 
 @app.route('/login')
