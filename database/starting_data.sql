@@ -14,7 +14,7 @@ INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
 VALUES ('Fruit Sponge Cake', 'A soft and light airy whipped cream with fruit cake ', 20.00, 'static/images/fruitCake.jpeg', 'Cake');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
-VALUES ('Cupcake', 'Pink cupcake with marble cream cheese frosting (sale by dozen)', 10.00, 'static/images/cupcake.png', 'Cupcake');
+VALUES ('Cupcake', 'Pink cupcake with marble cream cheese frosting (sale by dozen)', 10.00, 'static/images/cupcakes.jpeg', 'Cupcake');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
 VALUES ('Milk Bread', 'Signature milk bread', 4.00, 'static/images/milkBread.jpeg', 'Bread');
