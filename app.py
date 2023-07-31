@@ -211,7 +211,7 @@ def menu_page():
     returns:
         - None
     """
-    return render_template('menu.html')
+    return render_template('menu.html', products=products, sessions=sessions)
 
 @app.route('/review', methods=['POST'])
 def review():
