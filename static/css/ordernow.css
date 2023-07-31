@@ -22,7 +22,7 @@ h2 {
 }
 
 .functions-box {
-    background-color: #ffb3d1; /* Lighter pink color */
+    background-color: #ffb3d1; 
     color: #000000;
     padding: 20px;
     border-radius: 10px;
@@ -32,6 +32,8 @@ h2 {
 }
 
 form {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 20px;
     border: 2px solid #ff0080;
     border-radius: 10px;
@@ -58,10 +60,14 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #ff0080;
-    color: #000000;
+    
+    border-radius: 20px;
+    background-color: rgb(202, 98, 157);
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 0 10px #FDC149;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
