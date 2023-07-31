@@ -38,9 +38,6 @@ INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
 VALUES ('Chocolate cupcakes', 'Chocolate cupcakes with sprinkles', 15.00, 'static/images/chocolate_cupcakes.jpeg', 'Cupcake');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
-VALUES ('Cupcake', 'Pink cupcake with marble cream cheese frosting (sale by dozen)', 20.00, 'static/images/cupcake.png', 'Cupcake');
-
-INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
 VALUES ('Milk Bread', 'Signature milk bread', 5.00, 'static/images/milkBread.jpeg', 'Bread');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `image_url`, `category`)
@@ -54,3 +51,7 @@ VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
+
+INSERT into `reviews` (`first_name`, `last_name`, `email`, `review`)
+VALUES('Bubble', 'Gum', 'bgum@gmail.com', 'This is the best bakery in town!')
+
