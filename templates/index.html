@@ -20,23 +20,37 @@
 <div class="row" id="products_page">
     <div class="col-md-12">
         <div class="row">
-            <form action="/checkout" method="post">
                 <div class="form-group">
                     <div class="row">
-                        {% for product in products %}
+
                         <div class="col-md-4">
                             <div class="product_card" id="product_card">
-                                <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                                <a href="/menu"><img src="/static/images/apple.jpeg" class="product_card-img" alt="..."></a>
                                 <div class="product_card-body">
-                                    <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                    <h5 class="product_card-title">Apple</h5>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        <div class="col-md-4">
+                            <div class="product_card" id="product_card">
+                                <a href="/menu"><img src="/static/images/mango.jpeg" class="product_card-img" alt="..."></a>
+                                <div class="product_card-body">
+                                    <h5 class="product_card-title">Mango</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product_card" id="product_card">
+                                <a href="/menu"><img src="/static/images/banana.jpeg" class="product_card-img" alt="..."></a>
+                                <div class="product_card-body">
+                                    <h5 class="product_card-title">Banana</h5>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 </div>
-            </form>
         </div>
     </div>
     <br>
