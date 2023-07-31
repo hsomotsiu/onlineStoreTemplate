@@ -89,10 +89,6 @@ class Database:
             - List of the full inventory table from the database.
         """
         self.cursor.execute("SELECT * FROM inventory")
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin
         return self.cursor.fetchall()
 
     def get_all_item_ids(self):
