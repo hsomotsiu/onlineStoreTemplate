@@ -5,6 +5,7 @@ from database.db import Database
 from flask import Flask, render_template, request
 from core.session import Sessions
 
+
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
 global username, products, reviews, db, sessions
