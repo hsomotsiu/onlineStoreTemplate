@@ -60,9 +60,14 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: #ff0080;
-    color: #000000;
+    border-radius: 20px;
+    background-color: rgb(202, 98, 157);
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 0 10px #FDC149;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
