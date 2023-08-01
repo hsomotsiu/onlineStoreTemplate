@@ -10,13 +10,15 @@
 }
 
 #login_button {
-    background-color: #4963f4;
-    border-color: #ccc;
+    background-color: rgb(209, 134, 193);
+    border-color: rgb(184, 98, 165);;
     color: rgb(236, 236, 236);
     width: 100px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
+    
 }
 
 #info_row {
