@@ -19,3 +19,11 @@
     </div>
 </div>
 {% endblock %}
+
+{% block active %}
+    <script>
+        // JavaScript code to set the "Menu" navigation item as active
+        const loginNav = document.querySelector('a[href="/login"]');
+        loginNav.classList.add('active');
+    </script>
+{% endblock %}

@@ -54,3 +54,11 @@
     <input type="submit" value="Submit Order">
 </form>
 {% endblock %}
+
+{% block active %}
+    <script>
+        // JavaScript code to set the "Menu" navigation item as active
+        const orderNav = document.querySelector('a[href="/order"]');
+        orderNav.classList.add('active');
+    </script>
+{% endblock %}

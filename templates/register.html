@@ -30,3 +30,11 @@
     </div>
 </div>
 {% endblock %}
+
+{% block active %}
+    <script>
+        // JavaScript code to set the "Menu" navigation item as active
+        const registerNav = document.querySelector('a[href="/register"]');
+        registerNav.classList.add('active');
+    </script>
+{% endblock %}
