@@ -91,3 +91,11 @@
 
 
 {% endblock %}
+
+{% block active %}
+    <script>
+        // JavaScript code to set the "Menu" navigation item as active
+        const homeNav = document.querySelector('a[href="/home"]');
+        homeNav.classList.add('active');
+    </script>
+{% endblock %}

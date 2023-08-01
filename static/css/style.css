@@ -310,7 +310,8 @@ input[type="submit"]:hover {
 }
 
 .menu-item-container {
-    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border: 2px dashed rgb(209, 134, 193);;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
@@ -334,6 +335,13 @@ input[type="submit"]:hover {
 nav li a.active {
     background-color: #F093B2 ;
     border-radius: 5px;
+}
+
+/* Update active link styles 2 */
+.active {
+    background-color: #F093B2 ;
+    border-radius: 50px;
+    color: white;
 }
 
 .category-title {
@@ -360,7 +368,7 @@ nav li a.active {
   .admin-reviewcontent {
     border-radius: 20px;
     background-color: #f9f9f9;
-    border: 4px dashed rgb(209, 134, 193);;
+    border: 4px dashed rgb(209, 134, 193);
     padding: 15px;
     margin-bottom: 10px;
   }

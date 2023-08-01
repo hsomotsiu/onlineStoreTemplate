@@ -5,15 +5,7 @@
     
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Additional styles specific to the menu page -->
-    <style>
-       
-        /* Update active link styles */
-        .active {
-            background-color: #F093B2 ;
-            border-radius: 5px;
-        }
-        
-    </style>
+    
 {% endblock %}
 
 {% block content %}
@@ -82,7 +74,7 @@
         
 {% endblock %}
 
-{% block menu_active %}
+{% block active %}
     <script>
         // JavaScript code to set the "Menu" navigation item as active
         const menuNav = document.querySelector('a[href="/menu"]');
