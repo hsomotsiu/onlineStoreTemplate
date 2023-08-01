@@ -156,66 +156,91 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
-
-
-# Placeholder function to simulate retrieving bakery options from the database
-def get_bakeries():
-    # Replace this with your actual database query to get bakery options
-    return ["Bakery A", "Bakery B", "Bakery C"]
-
-# Placeholder function to simulate saving order details to the database
-def place_order_in_database(first_name, last_name, email, pick_up_date, customization_note, selected_bakery_1, selected_bakery_2, selected_bakery_3):
-    # Replace this with your actual database insertion logic
-    # For now, we will print the order details
-    print("Order Details:")
-    print(f"First Name: {first_name}")
-    print(f"Last Name: {last_name}")
-    print(f"Email: {email}")
-    print(f"Pick-up Date: {pick_up_date}")
-    print(f"Customization Note: {customization_note}")
-    print(f"Selected Bakery 1: {selected_bakery_1}")
-    print(f"Selected Bakery 2: {selected_bakery_2}")
-    print(f"Selected Bakery 3: {selected_bakery_3}")
-    print("Order saved to the database.")
-
-# Add a new route for the "Order Now" page
 @app.route('/order', methods=['GET'])
-def order_now():
-    # Retrieve the bakery options from the database
+def ordernow():
     bakeries = get_bakeries()
-
-    # Pass the bakery options to the template
     return render_template('ordernow.html', bakeries=bakeries)
 
+# Add the get_bakeries() function
+def get_bakeries():
+    # Replace this with your actual database query to get bakery options
+    # For simplicity, we'll define the items and prices manually for now
+    return {
+        "cakes": [
+            {"name": "Fruit Sponge Cake", "price": 30.0},
+            {"name": "Flan", "price": 20.0},
+            {"name": "Ube Honeycomb", "price": 20.0},
+            {"name": "Customized Rectangle", "price": 40.0},
+            {"name": "Customized Heart", "price": 50.0},
+            {"name": "Customized Round", "price": 40.0}
+        ],
+        "cupcakes": [
+            {"name": "Pink cupcakes with marble cream cheese frosting", "price": 20.0},
+            {"name": "Chocolate cupcakes with sprinkles", "price": 15.0}
+        ],
+        "breads": [
+            {"name": "Milk Bread", "price": 5.0},
+            {"name": "French Bread", "price": 4.0}
+        ]
+    }
+
+# Modify the /place_order route
 @app.route('/place_order', methods=['POST'])
 def place_order():
     # Retrieve the form data from the submitted order
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     email = request.form['email']
-    phone = request.form['phone']  # Retrieve the phone number field
+    phone = request.form['phone']
     pick_up_date = request.form['pickUpDate']
     customization_note = request.form['customizationNote']
-    selected_bakery_1 = request.form['selectBakery1']
-    selected_bakery_2 = request.form['selectBakery2']
-    selected_bakery_3 = request.form['selectBakery3']
 
-    # Perform any necessary calculations to get the total price
-    # For example, assuming each bakery item has a price associated with it:
-    bakery_prices = {
-        "Bakery A": 5.99,
-        "Bakery B": 4.99,
-        "Bakery C": 6.49,
-    }
-    total_price = bakery_prices.get(selected_bakery_1, 0) + bakery_prices.get(selected_bakery_2, 0) + bakery_prices.get(selected_bakery_3, 0)
+    # Retrieve the item price from the database
+    bakery_items = get_bakeries()
+    total_price = 0.0
+
+    # Process the first bakery selection
+    selected_bakery1 = request.form['selectBakery1']
+    quantity1 = int(request.form['quantity1'])
+    for category, items in bakery_items.items():
+        for item in items:
+            if item["name"] == selected_bakery1:
+                total_price += item["price"] * quantity1
+                break
+
+    # Process the second bakery selection (if any)
+    selected_bakery2 = request.form.get('selectBakery2')  # Use get() with default value None
+    if selected_bakery2:
+        quantity2 = int(request.form['quantity2'])
+        for category, items in bakery_items.items():
+            for item in items:
+                if item["name"] == selected_bakery2:
+                    total_price += item["price"] * quantity2
+                    break
+
+    # Process the third bakery selection (if any)
+    selected_bakery3 = request.form.get('selectBakery3')  # Use get() with default value None
+    if selected_bakery3:
+        quantity3 = int(request.form['quantity3'])
+        for category, items in bakery_items.items():
+            for item in items:
+                if item["name"] == selected_bakery3:
+                    total_price += item["price"] * quantity3
+                    break
+
+    # Calculate the tax (2.00%)
+    tax = 0.02 * total_price
+
+    # Calculate the final total price with tax
+    total_price_with_tax = total_price + tax
 
     # Render the totalprice.html template with the order details and total price
     return render_template('totalprice.html', first_name=first_name, last_name=last_name, email=email, phone=phone,
                            pick_up_date=pick_up_date, customization_note=customization_note,
-                           selected_bakery_1=selected_bakery_1, selected_bakery_2=selected_bakery_2,
-                           selected_bakery_3=selected_bakery_3, total_price=total_price)
-
-
+                           selected_bakery1=selected_bakery1, quantity1=quantity1,
+                           selected_bakery2=selected_bakery2, quantity2=quantity2 if selected_bakery2 else None,
+                           selected_bakery3=selected_bakery3, quantity3=quantity3 if selected_bakery3 else None,
+                           subtotal=total_price, tax=tax, total_price=total_price_with_tax)
 
 
 @app.route('/menu')

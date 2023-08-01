@@ -22,26 +22,47 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required><br>
 
-    <label for="selectBakery1">Select Bakery 1*:</label>
+    <label for="selectBakery1">Select Bakery (Required):</label>
     <select id="selectBakery1" name="selectBakery1" required>
-        {% for bakery in bakeries %}
-            <option value="{{ bakery }}">{{ bakery }}</option>
+        <option value="" disabled selected>Select bakery</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
         {% endfor %}
-    </select><br>
+    </select>
+    <label for="quantity1">Quantity:</label>
+    <input type="number" id="quantity1" name="quantity1" min="1" value="1" required><br>
 
-    <label for="selectBakery2">Select Bakery 2:</label>
+    <label for="selectBakery2">Select Bakery (Optional):</label>
     <select id="selectBakery2" name="selectBakery2">
-        {% for bakery in bakeries %}
-            <option value="{{ bakery }}">{{ bakery }}</option>
+        <option value="" disabled selected>None</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
         {% endfor %}
-    </select><br>
+    </select>
+    <label for="quantity2">Quantity:</label>
+    <input type="number" id="quantity2" name="quantity2" min="0" value="0"><br>
 
-    <label for="selectBakery3">Select Bakery 3:</label>
+    <label for="selectBakery3">Select Bakery (Optional):</label>
     <select id="selectBakery3" name="selectBakery3">
-        {% for bakery in bakeries %}
-            <option value="{{ bakery }}">{{ bakery }}</option>
+        <option value="" disabled selected>None</option>
+        {% for category, items in bakeries.items() %}
+            <optgroup label="{{ category }}">
+                {% for item in items %}
+                    <option value="{{ item.name }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </optgroup>
         {% endfor %}
-    </select><br>
+    </select>
+    <label for="quantity3">Quantity:</label>
+    <input type="number" id="quantity3" name="quantity3" min="0" value="0"><br>
 
     <label for="pickUpDate">Pick up date:</label>
     <input type="date" id="pickUpDate" name="pickUpDate" required><br>
@@ -53,12 +74,4 @@
 
     <input type="submit" value="Submit Order">
 </form>
-{% endblock %}
-
-{% block active %}
-    <script>
-        // JavaScript code to set the "Menu" navigation item as active
-        const orderNav = document.querySelector('a[href="/order"]');
-        orderNav.classList.add('active');
-    </script>
 {% endblock %}
