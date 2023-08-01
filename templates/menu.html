@@ -12,7 +12,11 @@
     <!-- Menu content -->
     <div class="menu-section">
 
-        <div class="category-title">Cake</div>
+        <div class="category-container">
+            <div class="category-title">Cake</div>
+        </div> <!-- End of the category container -->
+
+        
         {% for product in products %}
         {% if product.category == "Cake" %}
         <div class="menu-item-container">
@@ -32,7 +36,10 @@
         {% endif %}
         {% endfor %}
 
-        <div class="category-title">Cupcake</div>
+        <div class="category-container">
+            <div class="category-title">Cupcake</div>
+        </div> <!-- End of the category container -->
+        
         {% for product in products %}
         {% if product.category == "Cupcake" %}
         <div class="menu-item-container">
@@ -52,7 +59,10 @@
         {% endif %}
         {% endfor %}
 
-        <div class="category-title">Bread</div>
+        <div class="category-container">
+            <div class="category-title">Bread</div>
+        </div> <!-- End of the category container -->
+        
         {% for product in products %}
         {% if product.category == "Bread" %}
         <div class="menu-item-container">

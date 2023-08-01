@@ -312,7 +312,7 @@ input[type="submit"]:hover {
 .menu-item-container {
     background-color: #f9f9f9;
     border: 2px dashed rgb(209, 134, 193);;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 10px;
     margin-bottom: 20px;
     display: flex;
@@ -325,10 +325,19 @@ input[type="submit"]:hover {
 }
 
 .category-title {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
     margin-top: 30px;
     font-family: "Bakery", cursive;
+}
+
+.category-container {
+    margin-top: 20px; /* Add some margin between the category containers */
+    border: 1px solid #ccc; /* Add a border around the category containers */
+    padding: 10px; /* Add padding inside the category containers */
+    background-color:  rgb(241, 150, 213); /* Add a background color to the category containers */
+    border-radius: 20px;
+    text-align: center;
 }
 
 /* Update active link styles */
@@ -344,11 +353,12 @@ nav li a.active {
     color: white;
 }
 
-.category-title {
-    margin-top: 30px;
-    font-size: 24px;
-    font-weight: bold;
-}
+
+
+
+
+  
+  
 
 .admin-header {
     background-color: #e7a3d7;
