@@ -53,5 +53,5 @@ INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_
 VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
 
 INSERT into `reviews` (`first_name`, `last_name`, `email`, `review`)
-VALUES('Bubble', 'Gum', 'bgum@gmail.com', 'This is the best bakery in town!')
+VALUES('Bubble', 'Gum', 'bgum@gmail.com', 'This is the best bakery in town!');
 
