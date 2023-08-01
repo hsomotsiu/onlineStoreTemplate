@@ -569,20 +569,6 @@ class Database:
         self.cursor.execute(
             "SELECT * FROM sales WHERE sale_id = ?", (sale_id,))
         return self.cursor.fetchone()
-    
-    def get_sale_detail_by_id(self, sale_id: int):
-        """
-        Gets the sales for a sale from the database.
-
-        args:
-            - sale_id: The id of the sale whose information to get.
-
-        returns:
-            - The sales records for the sale with the given id.
-        """
-        self.cursor.execute(
-            "SELECT a.username, a.item_id, a.quantity, a.cost, b.item_name FROM sales a JOIN inventory b ON a.item_id = b.id WHERE sale_id = ?", (sale_id,))
-        return self.cursor.fetchone()
 
     def get_sales_by_transaction_id(self, transaction_id: int):
         """
