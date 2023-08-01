@@ -294,11 +294,32 @@ input[type="submit"]:hover {
     margin-bottom: 20px; /* Add space between menu items */
     justify-content: space-between;
 }
+
+
+/* Styles for the product name */
+h5 {
+    
+    font-size: 25px;
+    margin-left: 20px; /* Add space between image and info */
+    font-weight: bold;
+    color: #70a9e3; 
+    font-family: "Bakery", cursive;
+}
+  
 .menu-item-info {
-    flex: 1; /* Let the info take all available space */
+    flex: 1;
     margin-left: 20px; /* Add space between image and info */
 }
+
+/* Styles for the product information */
+p {
+    margin-left: 20px; /* Add space between image and info */
+    font-size: 20px;
+    color: #555; /* Change the font color if desired */
+}
 .menu-item-price {
+    
+    margin-left: 20px; /* Add space between image and info */
     font-weight: bold;
     color: #3f8fdf;
 }
@@ -324,11 +345,16 @@ input[type="submit"]:hover {
     src: url('/Bakery.ttf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Butter';
+    src: url('/static/css/butter/Mister\ Butter.otf') format('opentype');
+}
+
 .category-title {
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 100px;
+   
     margin-top: 30px;
-    font-family: "Bakery", cursive;
+    font-family: "Butter";
 }
 
 .category-container {
@@ -338,6 +364,7 @@ input[type="submit"]:hover {
     background-color:  rgb(241, 150, 213); /* Add a background color to the category containers */
     border-radius: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 /* Update active link styles */
@@ -355,11 +382,6 @@ nav li a.active {
 
 
 
-
-
-  
-  
-
 .admin-header {
     background-color: #e7a3d7;
     border-radius: 20px;
@@ -373,15 +395,15 @@ nav li a.active {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
     
-  }
+}
   
-  .admin-reviewcontent {
+.admin-reviewcontent {
     border-radius: 20px;
     background-color: #f9f9f9;
     border: 4px dashed rgb(209, 134, 193);
     padding: 15px;
     margin-bottom: 10px;
-  }
+}
   
 .admin-reviewcontent {
     padding: 10px;
