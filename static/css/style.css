@@ -292,121 +292,23 @@ input[type="submit"]:hover {
     display: flex; /* Add flexbox to arrange items side by side */
     align-items: center; /* Vertically align image and info */
     margin-bottom: 20px; /* Add space between menu items */
-    justify-content: space-between;
 }
-
-
-/* Styles for the product name */
-h5 {
-    
-    font-size: 25px;
-    margin-left: 20px; /* Add space between image and info */
-    font-weight: bold;
-    color: #70a9e3; 
-    font-family: "Bakery", cursive;
-}
-  
 .menu-item-info {
-    flex: 1;
+    flex: 1; /* Let the info take all available space */
     margin-left: 20px; /* Add space between image and info */
-}
-
-/* Styles for the product information */
-p {
-    margin-left: 20px; /* Add space between image and info */
-    font-size: 20px;
-    color: #555; /* Change the font color if desired */
 }
 .menu-item-price {
-    
-    margin-left: 20px; /* Add space between image and info */
     font-weight: bold;
-    color: #3f8fdf;
+    color: #009688;
 }
 .menu-item-image {
-    max-width: 300px;
+    max-width: 200px;
     border: 1px solid #ddd;
-    border-radius: 20px;
-    margin-right: 20px;
-}
-
-.menu-item-container {
-    background-color: #f9f9f9;
-    border: 2px dashed rgb(209, 134, 193);;
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-@font-face {
-    font-family: 'Bakery';
-    src: url('/Bakery.ttf') format('opentype');
-}
-
-@font-face {
-    font-family: 'Butter';
-    src: url('/static/css/butter/Mister\ Butter.otf') format('opentype');
-}
-
-.category-title {
-    font-size: 100px;
-   
-    margin-top: 30px;
-    font-family: "Butter";
-}
-
-.category-container {
-    margin-top: 20px; /* Add some margin between the category containers */
-    border: 1px solid #ccc; /* Add a border around the category containers */
-    padding: 10px; /* Add padding inside the category containers */
-    background-color:  rgb(241, 150, 213); /* Add a background color to the category containers */
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-/* Update active link styles */
-nav li a.active {
-    background-color: #F093B2 ;
     border-radius: 5px;
 }
 
-/* Update active link styles 2 */
-.active {
-    background-color: #F093B2 ;
-    border-radius: 50px;
-    color: white;
-}
-
-
-
-.admin-header {
-    background-color: #e7a3d7;
-    border-radius: 20px;
-    border: 4px dashed rgb(209, 134, 193);
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white;
-    
-}
-  
-.admin-reviewcontent {
-    border-radius: 20px;
-    background-color: #f9f9f9;
-    border: 4px dashed rgb(209, 134, 193);
-    padding: 15px;
-    margin-bottom: 10px;
-}
-  
-.admin-reviewcontent {
-    padding: 10px;
+.category-title {
     font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif; 
-  }
+    font-weight: bold;
+    margin-top: 30px;
+}

@@ -1,0 +1,72 @@
+body {
+    background-color: rgba(255, 235, 246, 1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #4caf50;
+  }
+  
+h2 {
+    color: #4caf50;
+    text-align: center;
+    font-size: 32px;
+}
+
+.intro-box {
+    background-color: rgb(255, 255, 255);
+    color: #4caf50;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.functions-box {
+    background-color: #ffb3d1; 
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+form {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    border: 2px solid #ff0080;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"], 
+select,
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+  border-radius: 20px;
+  background-color: rgb(202, 98, 157);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 0 10px #FDC149;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="intro-box">
+    <h2>Order Number</h2>
+    <link rel="stylesheet" href="/static/css/orderdetails.css">
+
+    <p>
+        <label for="order-number">Dear Customer, Your Order Number: 02734893246</label>
+    </p>
+    <p class="paracont">
+        Thank you for placing an order with us! Please pay and pick up the order in store!
+    </p>
+</div>
+
+<form action="/place_order" method="post">
+    <p>
+        <label for="customer-name">Customer Name: Sahiti Moduga</label>
+    </p>
+
+    <p>
+        <table>
+            <tr>
+                <td width="300"> <label for="item-one">Item Name</label></td>
+                <td width="100"> <label for="item-one">Qty.</label></td>
+                <td width="100"> <label for="item-one">Cost</label></td>
+            </tr>
+            {% for order in orderdetails %}
+            <tr>
+                <td> <label for="item-one">{{order.item_name}}</label></td>
+                <td> <label for="item-one">{{order.quantity}}</label></td>
+                <td> <label for="item-one">{{order.cost}}</label></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td> <label for="item-one">Milk Bread</label></td>
+                <td> <label for="item-one">$5</label></td>
+            </tr>
+            <tr>
+                <td> <label for="item-one">Total:</label></td>
+                <td> <label for="item-one">$55</label></td>
+            </tr>
+        </table>
+
+    </p>
+    
+</form>
+{% endblock %}
