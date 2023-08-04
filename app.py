@@ -89,6 +89,7 @@ def register_page():
     returns:
         - None
     """
+    
     return render_template('register.html')
 
 

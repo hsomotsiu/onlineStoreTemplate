@@ -4,6 +4,7 @@ from authentication.auth_tools import hash_password
 def test_hash_password_generates_salt():
     """
     Tests that the hash_password function generates a salt when one is not provided.
+    salt: encoding pass
 
     args:
         - None
@@ -36,10 +37,10 @@ def test_salt_length():
 
     salt, _ = hash_password("password")
     if len(salt) != 32:
-        error = f"Error in test_salt_length: Salt is not 16 characters long.\n  - Actual: {len(salt)}"
+        error = f"Error in test_salt_length: Salt is not 32 characters long.\n  - Actual: {len(salt)}"
         return False, error
     else:
-        return True, "Salt is 16 characters long."
+        return True, "Salt is 32 characters long."
 
 
 def test_hash_password_returns_given_salt():

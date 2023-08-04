@@ -27,6 +27,7 @@ def test_init_db(db: Database = None) -> tuple:
 def test_get_inventory_exists(db: Database = None) -> tuple:
     """
     Tests that the inventory is not empty.
+    Testing if we have anything we have anything in the starting_data.sql
 
     args:
         - db: an sqlite3 database object (optional)
@@ -46,7 +47,7 @@ def test_get_inventory_exists(db: Database = None) -> tuple:
     else:
         return True, "Full inventory is not empty."
 
-
+        """???factory link??? """
 def test_dict_factory_link(db: Database = None) -> tuple:
     """
     Tests that the row factory is linked to dict_factory.
@@ -66,7 +67,7 @@ def test_dict_factory_link(db: Database = None) -> tuple:
     else:
         return True, "Row factory is linked to dict_factory."
 
-
+"""??single thread"""
 def test_check_connection_threaded(db: Database = None) -> tuple:
     """
     Tests that the database connection is not single threaded.

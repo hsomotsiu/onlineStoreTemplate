@@ -289,6 +289,7 @@ input[type="submit"]:hover {
     padding: 10px;
     background-color: #FFEBF6;
     border-radius: 5px;
+    align-items: center; /* Center items horizontally */
 }
 .menu-item {
     display: flex; /* Add flexbox to arrange items side by side */
@@ -301,7 +302,7 @@ input[type="submit"]:hover {
 /* Styles for the product name */
 h5 {
     
-    font-size: 25px;
+    font-size: 35px;
     margin-left: 20px; /* Add space between image and info */
     font-weight: bold;
     color: #70a9e3; 
@@ -316,23 +317,26 @@ h5 {
 /* Styles for the product information */
 p {
     margin-left: 20px; /* Add space between image and info */
-    font-size: 20px;
+    font-size: 25px;
     color: #555; /* Change the font color if desired */
+    font-family: 'Times New Roman', Times, serif;
 }
 .menu-item-price {
     
-    margin-left: 20px; /* Add space between image and info */
+    margin-left: 35px; /* Add space between image and info */
+    font-size: 35px;
     font-weight: bold;
     color: #3f8fdf;
 }
 .menu-item-image {
-    max-width: 300px;
+    max-width: 200px;
     border: 1px solid #ddd;
     border-radius: 20px;
     margin-right: 20px;
 }
 
 .menu-item-container {
+    width: 1000px; 
     background-color: #f9f9f9;
     border: 2px dashed rgb(209, 134, 193);;
     border-radius: 20px;
@@ -340,6 +344,8 @@ p {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    margin-left: 30px;
+    
 }
 
 @font-face {
@@ -353,9 +359,8 @@ p {
 }
 
 .category-title {
-    font-size: 100px;
-   
-    margin-top: 30px;
+    font-size: 50px;
+    margin-top: 10px;
     font-family: "Butter";
 }
 
@@ -367,13 +372,10 @@ p {
     border-radius: 20px;
     text-align: center;
     margin-bottom: 10px;
+    background-image: radial-gradient(rgb(241, 150, 213), #ffebf6);
 }
 
-/* Update active link styles */
-nav li a.active {
-    background-color: #F093B2 ;
-    border-radius: 5px;
-}
+
 
 /* Update active link styles 2 */
 .active {

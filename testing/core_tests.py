@@ -5,6 +5,7 @@ from database.db import Database
 def test_init_sessions() -> tuple:
     """
     Tests that the Sessions class is initialized correctly.
+    user profile 
 
     args:
         - None
@@ -27,6 +28,7 @@ def test_init_sessions() -> tuple:
 def test_add_new_session() -> tuple:
     """
     Tests that a new session is added correctly.
+    testing whether a new user is added correctly
 
     args:
         - None
@@ -51,7 +53,7 @@ def test_add_new_session() -> tuple:
 def test_get_session() -> tuple:
     """
     Tests that a session is retrieved correctly.
-
+    Testing to retrieve the right users (including the admin session)
     args:
         - None
 
@@ -76,6 +78,7 @@ def test_get_session() -> tuple:
 def test_get_session_username() -> tuple:
     """
     Tests that a session's username is retrieved correctly.
+    TEsting if the username is right (including admin)
 
     args:
         - None
