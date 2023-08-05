@@ -124,3 +124,44 @@ def test_get_session_db() -> tuple:
         return False, error
     else:
         return True, "Session's database is correct."
+    
+    '''
+    -------------------------------------
+    -----------REVIEW-TESTINGS------------
+    -------------------------------------
+    '''
+def test_review_submission() -> tuple:
+        '''
+        This is to review whether the database is obtaining the 
+        review submission.
+
+        Returns: 
+        A tuple that contains a boolean and a string
+        Boolean determines if the test passed or failed
+        String will print out the test result
+        '''
+        db = Database("database/store_records.db") #Create database instance class
+
+        #Get review length before addition
+        all_reviews = db.get_all_reviews()
+        length_before = len(all_reviews)
+
+        #Review details that will be passed through the review submission by inserting it into table
+        first_name = "Bumble"
+        last_name = "Berry"
+        email = "bberry@example.com"
+        rev = "This is a test"
+
+        db.insert_new_review(first_name, last_name, email, rev)
+
+        #Get review length after addition 
+        all_reviews = db.get_all_reviews()
+        length_after = len(all_reviews)
+
+        # Check if the review submission is successful
+        if length_after > length_before :
+            return True, "Review has been submitted successfully."
+        else :
+            return False, "Review submission failed."
+            
+
