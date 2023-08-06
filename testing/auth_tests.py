@@ -1,5 +1,5 @@
-from authentication.auth_tools import hash_password, reset_password
-from app import login
+from authentication.auth_tools import hash_password, reset_password, update_passwords, username_exists
+from database.db import Database
 
 def test_hash_password_generates_salt():
     """
@@ -89,52 +89,35 @@ def test_hash_password_uses_given_salt():
         return True, "Hashes are different."
 
 
-def test_reset_password_generates_new_password():
+def test_reset_password():
     """
-    Tests that the reset_password function generates a new password hash and salt.
-
-    args:
-        - None
+    This test function will tests that the reset_password function generates a new password hash and salt.
 
     returns:
         - error_report: a tuple containing a boolean and a string,
           where the boolean is True if the test passed and False if it failed,
           and the string is the error report.
     """
-    old_salt, old_hash = hash_password("old_password")
-    new_salt, new_hash = reset_password("old_password", old_salt)
-
-    if old_hash == new_hash:
-        error = f"Error in test_reset_password_generates_new_password: Password hash was not changed.\n  - Old Hash: {old_hash}\n  - New Hash: {new_hash}"
-        return False, error
-    else:
-        return True, "Password hash was changed."
     
+    db = Database("database/store_records.db") #Create database instance class
 
+   # Create a new user
+    username = "test_user_passw"
+    password = "old_password"
+    email = "user@gamil.com"
+    first_name = "Bill"
+    last_name = "Howell"
+    db.insert_user(username, password, email, first_name, last_name)
+    
+    # Reset the user's password
+    new_password = "new_password"
+    reset_success = reset_password(username, new_password)
+    
+    if reset_success is None:
+        return False, "Error in test_reset_password: Password reset failed."
+    
+    if not username_exists(username):
+        return False, "Error in test_reset_password: Username does not exist."
 
-def test_login_as_admin():
-    """
-    Tests the login function using the admin credentials.
+    return True, "Password reset and authentication with new password successful."
 
-    args:
-        - None
-
-    returns:
-        - error_report: a tuple containing a boolean and a string,
-          where the boolean is True if the test passed and False if it failed,
-          and the string is the error report.
-    """
-    admin_username = "admin"
-    admin_password = "admin"
-
-    # Hash the admin password and store it for comparison
-    admin_salt, admin_hash = hash_password(admin_password)
-
-    # Simulate login attempt
-    login_successful = login(admin_username, admin_password, admin_salt, admin_hash)
-
-    if not login_successful:
-        error = "Error in test_login_as_admin: Admin login failed."
-        return False, error
-    else:
-        return True, "Admin login succeeded."

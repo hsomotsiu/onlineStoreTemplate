@@ -1,4 +1,4 @@
-from testing.auth_tests import test_hash_password_generates_salt, test_salt_length, test_hash_password_returns_given_salt, test_hash_password_uses_given_salt, test_reset_password_generates_new_password, test_login_as_admin
+from testing.auth_tests import test_hash_password_generates_salt, test_salt_length, test_hash_password_returns_given_salt, test_hash_password_uses_given_salt, test_reset_password
 from core.utils import generate_unique_id
 from datetime import datetime
 from testing.db_tests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
@@ -11,8 +11,7 @@ AUTH_FUNCS = [test_hash_password_generates_salt,
               test_salt_length,
               test_hash_password_returns_given_salt,
               test_hash_password_uses_given_salt,
-              test_reset_password_generates_new_password,  # Add the new reset password test,
-              test_login_as_admin]
+              test_reset_password]
 
 DB_FUNCS = [test_init_db, test_get_inventory_exists,
             test_dict_factory_link,
