@@ -1,5 +1,5 @@
-from authentication.auth_tools import hash_password
-
+from authentication.auth_tools import hash_password, reset_password
+from app import login
 
 def test_hash_password_generates_salt():
     """
@@ -87,3 +87,54 @@ def test_hash_password_uses_given_salt():
         return False, error
     else:
         return True, "Hashes are different."
+
+
+def test_reset_password_generates_new_password():
+    """
+    Tests that the reset_password function generates a new password hash and salt.
+
+    args:
+        - None
+
+    returns:
+        - error_report: a tuple containing a boolean and a string,
+          where the boolean is True if the test passed and False if it failed,
+          and the string is the error report.
+    """
+    old_salt, old_hash = hash_password("old_password")
+    new_salt, new_hash = reset_password("old_password", old_salt)
+
+    if old_hash == new_hash:
+        error = f"Error in test_reset_password_generates_new_password: Password hash was not changed.\n  - Old Hash: {old_hash}\n  - New Hash: {new_hash}"
+        return False, error
+    else:
+        return True, "Password hash was changed."
+    
+
+
+def test_login_as_admin():
+    """
+    Tests the login function using the admin credentials.
+
+    args:
+        - None
+
+    returns:
+        - error_report: a tuple containing a boolean and a string,
+          where the boolean is True if the test passed and False if it failed,
+          and the string is the error report.
+    """
+    admin_username = "admin"
+    admin_password = "admin"
+
+    # Hash the admin password and store it for comparison
+    admin_salt, admin_hash = hash_password(admin_password)
+
+    # Simulate login attempt
+    login_successful = login(admin_username, admin_password, admin_salt, admin_hash)
+
+    if not login_successful:
+        error = "Error in test_login_as_admin: Admin login failed."
+        return False, error
+    else:
+        return True, "Admin login succeeded."

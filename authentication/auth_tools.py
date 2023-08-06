@@ -111,6 +111,26 @@ def login_pipeline(username: str, password: str) -> bool:
     return False
 
 
+def reset_password(username: str, new_password: str) -> bool:
+    """
+    Resets the password for a given username.
+
+    args:
+        - username: A string of the username for which to reset the password.
+        - new_password: A string of the new password to set.
+
+    returns:
+        - A tuple of (salt, key) if the password was successfully reset, or None if the reset failed.
+    """
+    if not username_exists(username):
+        return None
+
+    salt, key = hash_password(new_password)
+    update_passwords(username, key, salt)
+    return salt, key
+
+
+
 def main():
     password = input("enter password: ")
     salt, key = hash_password(password)
