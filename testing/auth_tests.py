@@ -1,4 +1,4 @@
-from authentication.auth_tools import hash_password, reset_password, update_passwords, username_exists
+from authentication.auth_tools import hash_password, reset_password, update_passwords, username_exists, login_pipeline
 from database.db import Database
 
 def test_hash_password_generates_salt():
@@ -118,6 +118,10 @@ def test_reset_password():
     
     if not username_exists(username):
         return False, "Error in test_reset_password: Username does not exist."
+    
+    # Check if the new password is valid
+    if not login_pipeline(username, new_password):
+        return False, "Error in test_reset_password: Authentication with new password failed."
 
     return True, "Password reset and authentication with new password successful."
 

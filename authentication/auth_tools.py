@@ -123,11 +123,11 @@ def reset_password(username: str, new_password: str) -> bool:
         - A tuple of (salt, key) if the password was successfully reset, or None if the reset failed.
     """
     if not username_exists(username):
-        return None
+        return False
 
     salt, key = hash_password(new_password)
     update_passwords(username, key, salt)
-    return salt, key
+    return True
 
 
 
