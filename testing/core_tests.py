@@ -1,21 +1,70 @@
 from core.session import Sessions, UserSession
 from database.db import Database
+from flask import Flask, render_template_string
+from flask.testing import FlaskClient
+from unittest.mock import patch
+from app import app
 
-
-def test_init_sessions() -> tuple:
+def test_place_order_total_price() -> tuple:
     """
-    Tests that the Sessions class is initialized correctly.
-    user profile 
-
-    args:
-        - None
+    Tests the total price calculation and rendering in the order confirmation page.
 
     returns:
         - error_report: a tuple containing a boolean and a string, 
           where the boolean is True if the test passed and False if it failed, 
           and the string is the error report.
     """
+    with app.test_request_context():
+        with app.test_client() as client:
+            mock_bakery_items = {
+                'cakes': [{'name': 'Fruit Sponge Cake', 'price': 30.0}],
+            }
 
+            expected_subtotal = mock_bakery_items['cakes'][0]['price'] * 1  # Assuming quantity is 1
+            expected_tax = round(0.02 * expected_subtotal, 2)
+            expected_total_price = expected_subtotal + expected_tax
+
+            expected_subtotal_string = f"Subtotal: ${expected_subtotal:.2f}"
+
+            response = client.post('/place_order', data={
+                'first_name': 'John',
+                'last_name': 'Doe',
+                'email': 'john@example.com',
+                'phone': '123-456-7890',
+                'pickUpDate': '2023-08-01',
+                'customizationNote': 'No customization',
+                'selectBakery1': 'Fruit Sponge Cake',
+                'quantity1': '1',
+            })
+
+            assert response.status_code == 200
+
+            response_data = response.get_data(as_text=True).strip()
+
+            error_report = []
+
+            if expected_subtotal_string not in response_data:
+                error_report.append(f"Expected subtotal string not found in response data.\n  - Expected: {expected_subtotal_string}")
+            if f"Tax (2.00%): ${expected_tax:.2f}" not in response_data:
+                error_report.append(f"Expected tax not found in response data.\n  - Expected: {f'${expected_tax:.2f}'}")
+            if f"Total Price (including tax): ${expected_total_price:.2f}" not in response_data:
+                error_report.append(f"Expected total price not found in response data.\n  - Expected: {f'${expected_total_price:.2f}'}")
+
+            if error_report:
+                error_message = "\n".join(error_report)
+                return False, error_message
+            else:
+                return True, "Total price calculation and rendering test passed."
+
+def test_init_sessions() -> tuple:
+    """
+    Tests that the Sessions class is initialized correctly.
+
+    returns:
+        - error_report: a tuple containing a boolean and a string, 
+          where the boolean is True if the test passed and False if it failed, 
+          and the string is the error report.
+    """
     sessions = Sessions()
 
     if len(sessions.sessions) != 0:
@@ -24,21 +73,15 @@ def test_init_sessions() -> tuple:
     else:
         return True, "Sessions dictionary is empty."
 
-
 def test_add_new_session() -> tuple:
     """
     Tests that a new session is added correctly.
-    testing whether a new user is added correctly
-
-    args:
-        - None
 
     returns:
         - error_report: a tuple containing a boolean and a string, 
           where the boolean is True if the test passed and False if it failed, 
           and the string is the error report.
     """
-
     db = Database("database/store_records.db")
     sessions = Sessions()
     sessions.add_new_session("test", db)
@@ -49,20 +92,15 @@ def test_add_new_session() -> tuple:
     else:
         return True, "Sessions dictionary is not empty."
 
-
 def test_get_session() -> tuple:
     """
     Tests that a session is retrieved correctly.
-    Testing to retrieve the right users (including the admin session)
-    args:
-        - None
 
     returns:
         - error_report: a tuple containing a boolean and a string, 
           where the boolean is True if the test passed and False if it failed, 
           and the string is the error report.
     """
-
     db = Database("database/store_records.db")
     sessions = Sessions()
     sessions.add_new_session("test", db)
@@ -74,21 +112,15 @@ def test_get_session() -> tuple:
     else:
         return True, "Session is a UserSession object."
 
-
 def test_get_session_username() -> tuple:
     """
     Tests that a session's username is retrieved correctly.
-    TEsting if the username is right (including admin)
-
-    args:
-        - None
 
     returns:
         - error_report: a tuple containing a boolean and a string, 
           where the boolean is True if the test passed and False if it failed, 
           and the string is the error report.
     """
-
     db = Database("database/store_records.db")
     sessions = Sessions()
     sessions.add_new_session("test", db)
@@ -100,20 +132,15 @@ def test_get_session_username() -> tuple:
     else:
         return True, "Session's username is correct."
 
-
 def test_get_session_db() -> tuple:
     """
     Tests that a session's database is retrieved correctly.
-
-    args:
-        - None
 
     returns:
         - error_report: a tuple containing a boolean and a string, 
           where the boolean is True if the test passed and False if it failed, 
           and the string is the error report.
     """
-
     db = Database("database/store_records.db")
     sessions = Sessions()
     sessions.add_new_session("test", db)
