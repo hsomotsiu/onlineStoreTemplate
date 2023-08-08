@@ -5,8 +5,10 @@ from flask.testing import FlaskClient
 from unittest.mock import patch
 from app import app
 
+
 def test_place_order_total_price() -> tuple:
     """
+    Hsomot Siu
     Tests the total price calculation and rendering in the order confirmation page.
 
     returns:
