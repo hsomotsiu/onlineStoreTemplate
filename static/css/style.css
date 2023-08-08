@@ -29,15 +29,6 @@
     border: 1px solid #ccc;
 }
 
-/*#register_button {
-    background-color: #444654;
-    border-color: #ccc;
-    color: rgb(236, 236, 236);
-    width: 100px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}*/
 
 #info_form_group {
     margin-top: 10px;
@@ -92,19 +83,6 @@
     font-weight: bold;
     font-style: italic;
 }
-
-/*#add_to_cart_button {
-    background-color: #49f4d8;
-    border-color: #ccc;
-    color: rgb(32, 30, 30);
-    width: 60px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-*/
-
 
 #count_row {
     margin: 0 auto;
@@ -220,7 +198,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
 label {
     display: block;
     margin-bottom: 5px;
@@ -294,12 +271,12 @@ input[type="submit"]:hover {
     padding: 10px;
     background-color: #FFEBF6;
     border-radius: 5px;
-    align-items: center; /* Center items horizontally */
+    align-items: center; 
 }
 .menu-item {
-    display: flex; /* Add flexbox to arrange items side by side */
-    align-items: center; /* Vertically align image and info */
-    margin-bottom: 20px; /* Add space between menu items */
+    display: flex; 
+    align-items: center;
+    margin-bottom: 20px; 
     justify-content: space-between;
 }
 
@@ -308,7 +285,7 @@ input[type="submit"]:hover {
 h5 {
     
     font-size: 35px;
-    margin-left: 20px; /* Add space between image and info */
+    margin-left: 20px; 
     font-weight: bold;
     color: #70a9e3; 
     font-family: "Bakery", cursive;
@@ -316,19 +293,19 @@ h5 {
   
 .menu-item-info {
     flex: 1;
-    margin-left: 20px; /* Add space between image and info */
+    margin-left: 20px; 
 }
 
 /* Styles for the product information */
 p {
-    margin-left: 20px; /* Add space between image and info */
+    margin-left: 20px; 
     font-size: 25px;
-    color: #555; /* Change the font color if desired */
+    color: #555; 
     font-family: 'Times New Roman', Times, serif;
 }
 .menu-item-price {
     
-    margin-left: 35px; /* Add space between image and info */
+    margin-left: 35px; 
     font-size: 35px;
     font-weight: bold;
     color: #3f8fdf;
@@ -371,10 +348,10 @@ p {
 }
 
 .category-container {
-    margin-top: 20px; /* Add some margin between the category containers */
-    border: 1px solid #ccc; /* Add a border around the category containers */
-    padding: 10px; /* Add padding inside the category containers */
-    background-color:  rgb(241, 150, 213); /* Add a background color to the category containers */
+    margin-top: 20px; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    background-color:  rgb(241, 150, 213); 
     border-radius: 20px;
     text-align: center;
     margin-bottom: 20px;

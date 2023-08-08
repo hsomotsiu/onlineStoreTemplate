@@ -2,6 +2,7 @@ from hashlib import sha512
 import os
 
 
+
 def hash_password(password: str, salt: str = None) -> tuple:
     """
     Hashes a password using SHA-512.
@@ -110,8 +111,7 @@ def login_pipeline(username: str, password: str) -> bool:
             return check_password(password, salt, key)
     return False
 
-
-def reset_password(username: str, new_password: str) -> bool:
+def reset_password(username: str, new_password: str) -> tuple:
     """
     Resets the password for a given username.
 
@@ -122,12 +122,13 @@ def reset_password(username: str, new_password: str) -> bool:
     returns:
         - A tuple of (salt, key) if the password was successfully reset, or None if the reset failed.
     """
+    
     if not username_exists(username):
         return False
 
     salt, key = hash_password(new_password)
     update_passwords(username, key, salt)
-    return True
+    return salt, key
 
 
 

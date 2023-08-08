@@ -108,10 +108,18 @@ def test_reset_password():
     first_name = "Bill"
     last_name = "Howell"
     db.insert_user(username, password, email, first_name, last_name)
+
     
     # Reset the user's password
     new_password = "new_password"
     reset_success = reset_password(username, new_password)
+
+    db.insert_user(username, new_password, email, first_name, last_name)
+
+    '''
+    retrieve the current password, use the get_password_hash to save the currently stored password
+    that equals to the new password
+    '''
     
     if reset_success is None:
         return False, "Error in test_reset_password: Password reset failed."

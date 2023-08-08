@@ -145,20 +145,6 @@ class Database:
             "SELECT price FROM inventory WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
-    def get_item_stock_by_id(self, item_id: int):
-        """
-        Gets the stock of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The stock of the item with the given id.
-        """
-        self.cursor.execute(
-            "SELECT stock FROM inventory WHERE id = ?", (item_id,))
-        return self.cursor.fetchone()
-
     def get_item_image_url_by_id(self, item_id: int):
         """
         Gets the image_url of an item from the database.
@@ -232,21 +218,6 @@ class Database:
         """
         self.cursor.execute(
             "UPDATE inventory SET price = ? WHERE id = ?", (new_price, item_id))
-        self.connection.commit()
-
-    def set_item_stock(self, item_id: int, new_stock: int):
-        """
-        Updates the stock of an item in the database.
-
-        args:
-            - item_id: The id of the item to update.
-            - new_stock: The new stock of the item.
-
-        returns:
-            - None
-        """
-        self.cursor.execute(
-            "UPDATE inventory SET stock = ? WHERE id = ?", (new_stock, item_id))
         self.connection.commit()
 
     def set_item_image_url(self, item_id: int, new_image_url: str):
