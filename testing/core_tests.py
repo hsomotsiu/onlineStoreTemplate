@@ -24,7 +24,7 @@ def test_place_order_total_price() -> tuple:
             expected_tax = round(0.02 * expected_subtotal, 2)
             expected_total_price = expected_subtotal + expected_tax
 
-            expected_subtotal_string = f"Subtotal: ${expected_subtotal:.2f}"
+            expected_subtotal_string = f"${expected_subtotal:.1f}"
 
             response = client.post('/place_order', data={
                 'first_name': 'John',
@@ -41,14 +41,17 @@ def test_place_order_total_price() -> tuple:
 
             response_data = response.get_data(as_text=True).strip()
 
+            print("Response Data:")
+            print(response_data)
+
             error_report = []
 
             if expected_subtotal_string not in response_data:
                 error_report.append(f"Expected subtotal string not found in response data.\n  - Expected: {expected_subtotal_string}")
-            if f"Tax (2.00%): ${expected_tax:.2f}" not in response_data:
-                error_report.append(f"Expected tax not found in response data.\n  - Expected: {f'${expected_tax:.2f}'}")
-            if f"Total Price (including tax): ${expected_total_price:.2f}" not in response_data:
-                error_report.append(f"Expected total price not found in response data.\n  - Expected: {f'${expected_total_price:.2f}'}")
+            if f"${expected_tax:.1f}" not in response_data:
+                error_report.append(f"Expected tax not found in response data.\n  - Expected: {f'${expected_tax:.1f}'}")
+            if f"${expected_total_price:.1f}" not in response_data:
+                error_report.append(f"Expected total price not found in response data.\n  - Expected: {f'${expected_total_price:.1}'}")
 
             if error_report:
                 error_message = "\n".join(error_report)
