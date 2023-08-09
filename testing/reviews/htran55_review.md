@@ -3,7 +3,7 @@ Done!!!
 ## Tests Reviewed
 
 - **Test Source File:** [tests/core_tests.py](../../tests/core_tests.py)
-  - **Test Function Name:** `test_review_submission`
+  - **Test Function Name:** `test_review_submission` by Zarin
     - **Date Reviewed:** 08/07/2023
     - **Comments:**
       - The test is to make sure that the reviews will be inserted to database

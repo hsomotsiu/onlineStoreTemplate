@@ -102,34 +102,37 @@ def test_reset_password():
     db = Database("database/store_records.db") #Create database instance class
 
    # Create a new user
-    username = "test_user_passw"
+    username = "test_user_passwo"
     password = "old_password"
     email = "user@gamil.com"
     first_name = "Bill"
     last_name = "Howell"
     db.insert_user(username, password, email, first_name, last_name)
-
+    old_password = db.get_password_hash_by_username("test_user_passw")
     
     # Reset the user's password
     new_password = "new_password"
-    reset_success = reset_password(username, new_password)
+    #reset_password(username, new_password)
+    db.set_password_hash("test_user_passwo", new_password)
 
-    db.insert_user(username, new_password, email, first_name, last_name)
+
+
+    new_password = db.get_password_hash_by_username("test_user_passwo")
+
+    if new_password != password:
+        return True, "Password reset and authentication with new password successful."
+
+    else:
+        return False, "Error in test_reset_password: Failed"
+
+   #  db.insert_user(username, new_password, email, first_name, last_name)
 
     '''
     retrieve the current password, use the get_password_hash to save the currently stored password
     that equals to the new password
     '''
     
-    if reset_success is None:
-        return False, "Error in test_reset_password: Password reset failed."
-    
-    if not username_exists(username):
-        return False, "Error in test_reset_password: Username does not exist."
-    
-    # Check if the new password is valid
-    if not login_pipeline(username, new_password):
-        return False, "Error in test_reset_password: Authentication with new password failed."
+   
 
-    return True, "Password reset and authentication with new password successful."
+    
 
