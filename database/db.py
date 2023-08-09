@@ -752,3 +752,13 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+    #def get_next_order_number(self, ):
+        #self.cursor.execute("SELECT MAX(order_number) FROM orders")
+        #result = self.cursor.fetchone()
+        #self.conn.commit()
+
+       # last_order_number = result[0]
+        #return last_order_number + 1 if last_order_number else 1
+
+
