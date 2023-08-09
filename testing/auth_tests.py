@@ -116,8 +116,7 @@ def test_reset_password():
 
     db.insert_user(username, new_password, email, first_name, last_name)
 
-    '''
-    retrieve the current password, use the get_password_hash to save the currently stored password
+    '''retrieve the current password, use the get_password_hash to save the currently stored password
     that equals to the new password
     '''
     
