@@ -2,7 +2,7 @@ import os
 from testing.auth_tests import test_hash_password_generates_salt, test_salt_length, test_hash_password_returns_given_salt, test_hash_password_uses_given_salt, test_reset_password
 from core.utils import generate_unique_id
 from datetime import datetime
-from testing.db_tests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
+from testing.db_tests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded, test_order_ids_sequential
 from testing.core_tests import test_init_sessions, test_add_new_session, test_get_session, test_get_session_username,test_review_submission, test_get_session_db, test_place_order_total_price
 from unittest.mock import patch
 
@@ -16,7 +16,8 @@ AUTH_FUNCS = [test_hash_password_generates_salt,
 
 DB_FUNCS = [test_init_db, test_get_inventory_exists,
             test_dict_factory_link,
-            test_check_connection_threaded]
+            test_check_connection_threaded,
+            test_order_ids_sequential]
 
 
 CORE_FUNCS = [

@@ -724,6 +724,7 @@ class Database:
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
 
+# sm added
     def get_order_id(self):
         return self.cursor.lastrowid
     
@@ -740,3 +741,16 @@ class Database:
         self.cursor.execute(
             "SELECT id FROM inventory WHERE item_name = ?", (item_name,))
         return self.cursor.fetchone()
+    
+    def get_all_order_ids(self):
+        """
+        Gets all order ids in the database.
+
+        args:
+            - None
+
+        returns:
+            - List of all order ids in the database.
+        """
+        self.cursor.execute("SELECT sale_id FROM sales")
+        return self.cursor.fetchall()
