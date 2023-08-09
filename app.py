@@ -4,17 +4,20 @@ from authentication.auth_tools import login_pipeline, update_passwords, hash_pas
 from database.db import Database
 from flask import Flask, render_template, request
 from core.session import Sessions
-
+from database.orderdetails_db import OrderDetailsDB
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
 global username, products, reviews, db, sessions
 username = 'default'
-db = Database('database/store_records.db')
+db = Database('/Users/sahitimoduga/ITSC 3155/onlineStoreTemplate/onlineStoreTemplate/database/store_records.db')
 products = db.get_full_inventory()
+print(products)
 reviews = db.get_all_reviews()
 sessions = Sessions()
 sessions.add_new_session(username, db)
+allsales = db.get_full_sales_information()
+print(allsales)
 
 
 @app.route('/')
@@ -32,7 +35,6 @@ def index_page():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    reviews = db.get_all_reviews()
     return render_template('admin/admin_dashboard.html', reviews=reviews)
 
 @app.route('/login')
@@ -214,6 +216,38 @@ def place_order():
                            pick_up_date=pick_up_date, customization_note=customization_note,
                            selected_bakery_1=selected_bakery_1, selected_bakery_2=selected_bakery_2,
                            selected_bakery_3=selected_bakery_3, total_price=total_price)
+
+# Add a new route for the "Order Number" page
+@app.route('/orderdetails', methods=['GET'])
+def order_details():
+    order_id = request.args.get('orderid')
+    print(order_id)
+
+    # Retrieve the bakery options from the database
+    orderdetailsdb = OrderDetailsDB()
+    saledetails = orderdetailsdb.get_sale_detail_by_id(db, order_id)
+    print(saledetails)
+
+    if type(saledetails) != 'List' and saledetails:
+        temp = []
+        temp.append(saledetails)
+    else:
+        temp = saledetails
+    
+    #print("check error here")
+
+    if temp:
+        print("Dictionary has values")
+    else:
+        print("Dictonary doesn't have values")
+
+    if temp:
+        return render_template('orderdetails.html', orderdetails=temp) 
+    else:
+        return render_template('orderdetailerror.html')
+
+    # Pass the bakery options to the template
+    return render_template('orderdetails.html', orderdetails=temp)
 
 
 
