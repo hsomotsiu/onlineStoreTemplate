@@ -203,10 +203,12 @@ def place_order():
     # Process the first bakery selection
     selected_bakery1 = request.form['selectBakery1']
     quantity1 = int(request.form['quantity1'])
+    selected_bakery1_cost = 0.0
     for category, items in bakery_items.items():
         for item in items:
             if item["name"] == selected_bakery1:
                 total_price += item["price"] * quantity1
+                selected_bakery1_cost = item["price"] * quantity1
                 break
 
     # Process the second bakery selection (if any)
@@ -235,13 +237,24 @@ def place_order():
     # Calculate the final total price with tax
     total_price_with_tax = total_price + tax
 
+    #debugging statement - sm
+    print(selected_bakery1)
+    #insert sales record - sm
+    itemid = db.get_item_id_by_item_name(selected_bakery1)
+    #debugging statement - sm
+    print(itemid["id"])
+    db.insert_new_sale(1, first_name + last_name, itemid["id"], quantity1, pick_up_date, selected_bakery1_cost)
+
+    #read the record and increment sale_id - sm
+    order_id = db.get_order_id()
+
     # Render the totalprice.html template with the order details and total price
     return render_template('totalprice.html', first_name=first_name, last_name=last_name, email=email, phone=phone,
                            pick_up_date=pick_up_date, customization_note=customization_note,
                            selected_bakery1=selected_bakery1, quantity1=quantity1,
                            selected_bakery2=selected_bakery2, quantity2=quantity2 if selected_bakery2 else None,
                            selected_bakery3=selected_bakery3, quantity3=quantity3 if selected_bakery3 else None,
-                           subtotal=total_price, tax=tax, total_price=total_price_with_tax)
+                           subtotal=total_price, tax=tax, total_price=total_price_with_tax, order_id=order_id)
 
 
 @app.route('/menu')

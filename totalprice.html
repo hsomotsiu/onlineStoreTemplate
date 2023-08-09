@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/totalprice.css">
+{% endblock %}
+
+{% block content %}
+<div class="function-box">
+    <h2>Order Confirmation</h2>
+    <p><strong>Order Id:</strong> {{ order_id }} </p>
+    <p><strong>Name:</strong> {{ first_name }} {{ last_name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone:</strong> {{ phone }}</p>  
+    <p><strong>Pick-up Date:</strong> {{ pick_up_date }}</p>
+    <p><strong>Customization Note:</strong> {{ customization_note }}</p>
+    
+    {% if selected_bakery1 %}
+        <p><strong>Selected Bakery 1:</strong> {{ selected_bakery1 }}</p>
+        <p><strong>Quantity 1:</strong> {{ quantity1 }}</p>
+    {% endif %}
+
+    {% if selected_bakery2 %}
+        <p><strong>Selected Bakery 2:</strong> {{ selected_bakery2 }}</p>
+        <p><strong>Quantity 2:</strong> {{ quantity2 }}</p>
+    {% endif %}
+
+    {% if selected_bakery3 %}
+        <p><strong>Selected Bakery 3:</strong> {{ selected_bakery3 }}</p>
+        <p><strong>Quantity 3:</strong> {{ quantity3 }}</p>
+    {% endif %}
+
+    <p><strong>Subtotal:</strong> ${{ subtotal }}</p>
+    <p><strong>Tax (2.00%):</strong> ${{ tax }}</p>
+    <p><strong>Total Price (including tax):</strong> ${{ total_price }}</p>
+    <p class="confirmation-message">Thank you for your order! We will prepare your treats and call you on the pick-up date.</p>
+</div>
+{% endblock %}
