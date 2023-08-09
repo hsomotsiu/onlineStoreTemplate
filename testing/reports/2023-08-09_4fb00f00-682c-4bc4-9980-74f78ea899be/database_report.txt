@@ -1,0 +1,5 @@
+Test report for database tests.
+Error in test_check_connection_single_thread: Connection is single threaded.
+ 
+database tests complete.
+4 out of 5 tests passed.

@@ -1,0 +1,3 @@
+Test report for core tests.
+core tests complete.
+7 out of 7 tests passed.

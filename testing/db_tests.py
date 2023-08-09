@@ -87,3 +87,30 @@ def test_check_connection_threaded(db: Database = None) -> tuple:
         return False, error
     else:
         return True, "Connection is not single threaded."
+    
+# sm added
+def test_order_ids_sequential(db: Database = None) -> tuple:
+    """
+    Tests that the database connection is not single threaded.
+
+    args:
+        - db: an sqlite3 database object (optional)
+
+    returns:
+        - error_report: a tuple containing a boolean and a string,
+    """
+
+    db = Database("database/store_records.db") if db is None else db
+    old_order_ids = db.get_all_order_ids()
+    order_ids = []
+
+    for order in old_order_ids:
+        order_ids.append(order["sale_id"])
+
+    sorted_order_ids = order_ids.sort()
+
+    if order_ids != sorted_order_ids:
+        error = f"Error in test_check_connection_single_thread: Connection is single threaded.\n "
+        return False, error
+    else:
+        return True, "Connection is not single threaded."
