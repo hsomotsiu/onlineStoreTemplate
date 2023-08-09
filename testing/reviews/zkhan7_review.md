@@ -6,4 +6,4 @@ Not done yet. Working on it!!!
   - **Test Function Name:** `test_place_order_total_price`
     - **Date Reviewed:** 08/06/2023
     - **Comments:**
-      - The test is not returning successfully (yet). Need to rework the logic. The total is not matching the expected, therefore failing 
+      - The test is returning successfully, and the logic is well written. It is meeting the expected value.
