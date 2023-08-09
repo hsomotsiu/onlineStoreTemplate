@@ -43,9 +43,6 @@ def test_place_order_total_price() -> tuple:
 
             response_data = response.get_data(as_text=True).strip()
 
-            print("Response Data:")
-            print(response_data)
-
             error_report = []
 
             if expected_subtotal_string not in response_data:
